@@ -1,140 +1,254 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>আমার সুন্দর ওয়েবসাইট</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sazid's Website</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#071d41;
+    color:white;
+    text-align:center;
+}
+
+nav{
+    background:#06162f;
+    padding:25px 10px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    background:#2874e8;
+    padding:18px 30px;
+    border-radius:40px;
+    font-size:20px;
+}
+
+section{
+    max-width:900px;
+    margin:30px auto;
+    padding:60px 25px;
+}
+
+.hero{
+    min-height:600px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.globe{
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    background:#2874e8;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:120px;
+    margin-bottom:40px;
+}
+
+h1{
+    font-size:48px;
+    margin-bottom:25px;
+}
+
+h2{
+    font-size:38px;
+    margin-bottom:30px;
+}
+
+p{
+    font-size:25px;
+    line-height:1.8;
+}
+
+.card{
+    background:rgba(255,255,255,0.15);
+    border-radius:45px;
+    padding:50px 30px;
+    margin-bottom:35px;
+}
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+}
+
+.skill{
+    background:#2874e8;
+    padding:18px 28px;
+    border-radius:40px;
+    font-size:21px;
+}
+
+.contact-btn{
+    display:block;
+    width:90%;
+    max-width:600px;
+    margin:20px auto;
+    padding:22px;
+    border-radius:30px;
+    text-decoration:none;
+    color:white;
+    font-size:25px;
+    font-weight:bold;
+}
+
+.facebook{
+    background:#1877f2;
+}
+
+.instagram{
+    background:#e1306c;
+}
+
+.gmail{
+    background:#ea4335;
+}
+
+.call{
+    background:#16a34a;
+}
+
+footer{
+    padding:30px;
+    background:#06162f;
+    font-size:18px;
+}
+
+@media(max-width:600px){
+    nav a{
+        font-size:19px;
+        padding:16px 25px;
     }
 
-    body {
-      background: linear-gradient(135deg, #071a3d, #163b70);
-      color: white;
-      min-height: 100vh;
+    h1{
+        font-size:40px;
     }
 
-    .container {
-      width: 90%;
-      max-width: 600px;
-      margin: auto;
-      padding: 50px 0;
-      text-align: center;
+    h2{
+        font-size:34px;
     }
 
-    h1 {
-      font-size: 38px;
-      margin-bottom: 15px;
+    p{
+        font-size:22px;
     }
 
-    p {
-      font-size: 18px;
-      line-height: 1.6;
-      margin-bottom: 30px;
+    .globe{
+        width:220px;
+        height:220px;
+        font-size:95px;
     }
 
-    .card {
-      background: white;
-      color: #222;
-      padding: 25px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    .contact-btn{
+        width:95%;
+        font-size:22px;
     }
-
-    .card h2 {
-      margin-bottom: 20px;
-    }
-
-    .btn {
-      display: block;
-      text-decoration: none;
-      color: white;
-      padding: 15px;
-      margin: 12px 0;
-      border-radius: 12px;
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    .call {
-      background: #16a34a;
-    }
-
-    .facebook {
-      background: #1877f2;
-    }
-
-    .instagram {
-      background: #e1306c;
-    }
-
-    .gmail {
-      background: #ea4335;
-    }
-
-    .btn:hover {
-      opacity: 0.85;
-    }
-
-    footer {
-      margin-top: 30px;
-      font-size: 14px;
-      opacity: 0.8;
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <div class="container">
+<nav>
+<a href="#home">🏠 Home</a>
+<a href="#about">👤 About</a>
+<a href="#skills">💻 Skills</a>
+<a href="#contact">📞 Contact</a>
+</nav>
 
-    <h1>আমার ওয়েবসাইট</h1>
+<section id="home" class="hero">
+<div class="globe">🌐</div>
+<h1>Welcome! 🎉</h1>
+<p>আমার সুন্দর ওয়েবসাইটে তোমাকে স্বাগতম ❤️</p>
+</section>
 
-    <p>
-      আমার ওয়েবসাইটে আপনাকে স্বাগতম ❤️
-    </p>
+<section id="about">
+<div class="card">
+<h2>👤 About Me</h2>
+<p>হ্যালো! আমি Sazid 😊</p>
+<br>
+<p>আমি ওয়েবসাইট তৈরি করা শিখছি।<br>
+HTML, CSS এবং JavaScript নিয়ে কাজ করছি।</p>
+</div>
+</section>
 
-    <div class="card">
+<section id="skills">
+<div class="card">
+<h2>💻 My Skills</h2>
 
-      <h2>আমার সাথে যোগাযোগ করুন</h2>
+<div class="skills">
+<div class="skill">HTML 🌐</div>
+<div class="skill">CSS 🎨</div>
+<div class="skill">JavaScript ⚡</div>
+<div class="skill">Web Design 📱</div>
+</div>
 
-      <!-- Call Button -->
-      <a class="btn call" href="tel:+8801930331034">
-        📞 কল করুন
-      </a>
+</div>
+</section>
 
-      <!-- Facebook -->
-      <a class="btn facebook"
-         href="https://facebook.com/"
-         target="_blank">
-        📘 Facebook
-      </a>
+<section id="contact">
+<div class="card">
 
-      <!-- Instagram -->
-      <a class="btn instagram"
-         href="https://instagram.com/"
-         target="_blank">
-        📷 Instagram
-      </a>
+<h2>📞 Contact Me</h2>
 
-      <!-- Gmail -->
-      <a class="btn gmail"
-         href="mailto:moktarid032@gmail.com">
-        ✉️ Gmail
-      </a>
+<p>
+আমার সাথে যোগাযোগ করতে নিচের
+যেকোনো মাধ্যম ব্যবহার করতে পারো।
+</p>
 
-    </div>
+<a class="contact-btn facebook"
+href="https://www.facebook.com/share/1JbXP6Mduq/"
+target="_blank"
+rel="noopener noreferrer">
+📘 Facebook
+</a>
 
-    <footer>
-      © 2026 আমার ওয়েবসাইট
-    </footer>
+<a class="contact-btn instagram"
+href="https://www.instagram.com/sazid_415673/"
+target="_blank"
+rel="noopener noreferrer">
+📸 Instagram
+</a>
 
-  </div>
+<a class="contact-btn gmail"
+href="mailto:moktadir032@gmail.com">
+📧 Gmail
+</a>
+
+<a class="contact-btn call"
+href="tel:01930331034">
+📞 Call Me
+</a>
+
+</div>
+</section>
+
+<footer>
+© 2026 Sazid's Website | Made with ❤️
+</footer>
 
 </body>
 </html>
