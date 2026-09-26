@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sazid's Website</title>
+<title>Sazid Top Up</title>
 
 <style>
 
@@ -12,6 +12,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:Arial,sans-serif;
 }
 
 html{
@@ -19,13 +20,11 @@ html{
 }
 
 body{
-    font-family:Arial,sans-serif;
-    background:#071f49;
+    background:#061a33;
     color:white;
-    line-height:1.6;
 }
 
-/* NAVIGATION */
+/* NAVBAR */
 
 nav{
     position:sticky;
@@ -35,28 +34,27 @@ nav{
     justify-content:center;
     flex-wrap:wrap;
     gap:10px;
-    padding:15px;
-    background:#071f49;
-    box-shadow:0 5px 20px rgba(0,0,0,.3);
+    padding:12px;
+    background:#051936;
+    box-shadow:0 5px 20px rgba(0,0,0,.5);
 }
 
 nav a{
     color:white;
     text-decoration:none;
-    background:#2167d1;
     padding:10px 18px;
-    border-radius:30px;
+    border-radius:25px;
     font-weight:bold;
-    font-size:18px;
+    background:#12345a;
     transition:.3s;
 }
 
 nav a:hover{
-    background:#3384f5;
-    transform:translateY(-3px);
+    background:#2d7ff9;
+    transform:translateY(-2px);
 }
 
-/* ALL SECTIONS */
+/* SECTIONS */
 
 section{
     min-height:100vh;
@@ -68,22 +66,25 @@ section{
 
 /* HOME */
 
-.hero{
-    text-align:center;
-    background:linear-gradient(135deg,#071f49,#0b3978);
+#home{
+    background:
+    radial-gradient(circle at top,#123e70,#061a33 60%);
 }
 
 .hero-content{
-    max-width:850px;
+    width:100%;
+    max-width:900px;
+    text-align:center;
 }
 
 .welcome{
     font-size:24px;
+    color:#ffe66d;
     margin-bottom:20px;
 }
 
 .hero h1{
-    font-size:50px;
+    font-size:55px;
     margin-bottom:25px;
 }
 
@@ -93,8 +94,9 @@ section{
 
 .hero-text{
     font-size:20px;
-    color:#e4edff;
-    margin-bottom:30px;
+    line-height:1.8;
+    color:#d9e8f8;
+    margin-bottom:35px;
 }
 
 .hero-buttons{
@@ -104,246 +106,60 @@ section{
     flex-wrap:wrap;
 }
 
-.hero-buttons a{
+.hero-btn{
+    display:inline-block;
+    padding:15px 28px;
+    border-radius:30px;
     text-decoration:none;
     color:white;
-    padding:14px 28px;
-    border-radius:30px;
-    font-weight:bold;
     font-size:18px;
-    transition:.3s;
+    font-weight:bold;
 }
 
-.hire-btn{
-    background:#168cff;
+.topup-btn{
+    background:#2d7ff9;
 }
 
-.work-btn{
-    background:#8e44ad;
-}
-
-.hero-buttons a:hover{
-    transform:translateY(-5px);
+.order-btn{
+    background:#e91e63;
 }
 
 /* ABOUT */
 
 #about{
-    background:#0a2857;
+    background:#071f3b;
 }
 
-.card{
+.info-card{
     width:100%;
-    max-width:750px;
-    background:linear-gradient(135deg,#5b2c83,#8e44ad);
-    border:2px solid #b97cff;
+    max-width:900px;
+    background:linear-gradient(135deg,#123e70,#0b294b);
+    border:2px solid #42a5ff;
     border-radius:30px;
-    padding:40px 30px;
+    padding:40px 25px;
     text-align:center;
-    box-shadow:0 15px 35px rgba(142,68,173,.35);
+    box-shadow:0 15px 35px rgba(0,0,0,.4);
 }
 
-.card h2{
+.info-card h2{
     font-size:40px;
     margin-bottom:25px;
 }
 
-.card p{
-    font-size:20px;
-    line-height:1.9;
+.info-card p{
+    font-size:19px;
+    line-height:1.8;
+    color:#e5f1ff;
 }
 
-/* SKILLS */
+/* TOP UP */
 
-#skills{
-    background:#092957;
-}
-
-.skills-card{
-    width:100%;
-    max-width:750px;
-    background:linear-gradient(135deg,#155799,#159957);
-    border:2px solid #55efc4;
-    border-radius:30px;
-    padding:35px 25px;
-    text-align:center;
-    box-shadow:0 15px 35px rgba(21,153,87,.35);
-}
-
-.skills-card h2{
-    font-size:40px;
-    margin-bottom:30px;
-}
-
-.skills{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:18px;
-}
-
-.skill{
-    background:rgba(0,0,0,.25);
-    border:1px solid rgba(255,255,255,.2);
-    padding:20px;
-    border-radius:20px;
-    font-size:20px;
-    font-weight:bold;
-}
-
-.skill:hover{
-    transform:translateY(-5px);
-}
-
-.skill:nth-child(3){
-    grid-column:1/3;
-}
-
-/* SERVICES */
-
-#services{
-    background:#102b50;
-}
-
-.services-card{
-    width:100%;
-    max-width:1100px;
-    background:linear-gradient(135deg,#7f4f24,#c77d2b);
-    border:2px solid #ffd166;
-    border-radius:30px;
-    padding:35px 25px;
-    text-align:center;
-    box-shadow:0 15px 35px rgba(199,125,43,.35);
-}
-
-.services-card h2{
-    font-size:40px;
-    margin-bottom:30px;
-}
-
-.services-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.service-box{
-    padding:30px 20px;
-    border-radius:25px;
-    border:2px solid rgba(255,255,255,.2);
-    box-shadow:0 18px 40px rgba(0,0,0,.45);
-    transition:.3s;
-}
-
-.service-box:nth-child(1){
-    background:linear-gradient(135deg,#071a35,#0b3d66);
-    border-color:#168cff;
-}
-
-.service-box:nth-child(2){
-    background:linear-gradient(135deg,#260b18,#63152f);
-    border-color:#ff3d81;
-}
-
-.service-box:nth-child(3){
-    background:linear-gradient(135deg,#06261c,#075c43);
-    border-color:#00d084;
-}
-
-.service-box:hover{
-    transform:translateY(-8px);
-}
-
-.service-box h3{
-    font-size:25px;
-    margin-bottom:12px;
-}
-
-.service-box p{
-    font-size:17px;
-}
-
-/* PROJECTS */
-
-#projects{
-    background:#17104a;
-}
-
-.projects-card{
-    width:100%;
-    max-width:1100px;
-    background:linear-gradient(135deg,#8e2de2,#4a00e0);
-    border:2px solid #c9a7ff;
-    border-radius:30px;
-    padding:35px 25px;
-    text-align:center;
-    box-shadow:0 15px 35px rgba(142,45,226,.35);
-}
-
-.projects-card h2{
-    font-size:40px;
-    margin-bottom:30px;
-}
-
-.projects-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.project-box{
-    padding:30px 20px;
-    border-radius:25px;
-    border:2px solid rgba(255,255,255,.15);
-    box-shadow:0 18px 40px rgba(0,0,0,.45);
-    transition:.3s;
-}
-
-.project-box:nth-child(1){
-    background:linear-gradient(135deg,#071a35,#0b3d66);
-    border-color:#168cff;
-}
-
-.project-box:nth-child(2){
-    background:linear-gradient(135deg,#260b18,#63152f);
-    border-color:#ff3d81;
-}
-
-.project-box:nth-child(3){
-    background:linear-gradient(135deg,#06261c,#075c43);
-    border-color:#00d084;
-}
-
-.project-box:hover{
-    transform:translateY(-8px);
-}
-
-.project-box h3{
-    font-size:24px;
-    margin-bottom:12px;
-}
-
-.project-box p{
-    margin-bottom:20px;
-}
-
-.project-btn{
-    display:inline-block;
-    color:white;
-    background:#168cff;
-    text-decoration:none;
-    padding:10px 20px;
-    border-radius:25px;
-    font-weight:bold;
-}
-
-/* PRICING */
-
-#pricing{
+#topup{
     background:#061a33;
     align-items:center;
 }
 
-.pricing-card{
+.topup-card{
     width:100%;
     max-width:1100px;
     background:linear-gradient(135deg,#76520e,#b8860b);
@@ -354,82 +170,168 @@ section{
     box-shadow:0 15px 35px rgba(184,134,11,.35);
 }
 
-.pricing-card h2{
+.topup-card h2{
     font-size:42px;
-    margin-bottom:35px;
+    margin-bottom:30px;
 }
 
-.pricing-grid{
+.uid-box{
+    max-width:650px;
+    margin:0 auto 30px;
+}
+
+.uid-box label{
+    display:block;
+    text-align:left;
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.uid-box input{
+    width:100%;
+    padding:16px;
+    border:none;
+    outline:none;
+    border-radius:15px;
+    font-size:18px;
+}
+
+/* DIAMOND GRID */
+
+.diamond-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:25px;
-    align-items:stretch;
+    gap:20px;
 }
 
-.price-box{
-    width:100%;
-    min-height:430px;
-    padding:30px 22px;
-    border-radius:28px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    border:3px solid;
-    box-shadow:0 15px 35px rgba(0,0,0,.4);
+.diamond-box{
+    padding:25px 15px;
+    border-radius:25px;
+    background:linear-gradient(135deg,#061a33,#0b3d66);
+    border:2px solid #168cff;
+    box-shadow:0 10px 25px rgba(0,0,0,.35);
     transition:.3s;
 }
 
-.price-box:nth-child(1){
-    background:linear-gradient(135deg,#061a33,#0b3d66);
-    border-color:#168cff;
+.diamond-box:hover{
+    transform:translateY(-7px);
 }
 
-.price-box:nth-child(2){
-    background:linear-gradient(135deg,#3b0754,#7b1fa2);
-    border-color:#e56cff;
+.diamond-icon{
+    font-size:45px;
+    margin-bottom:10px;
 }
 
-.price-box:nth-child(3){
-    background:linear-gradient(135deg,#033b2c,#087f5b);
-    border-color:#52efb4;
+.diamond-box h3{
+    font-size:25px;
+    margin-bottom:10px;
 }
 
-.price-box:hover{
-    transform:translateY(-8px);
-}
-
-.price-box h3{
+.diamond-price{
     font-size:30px;
-    margin-bottom:15px;
-}
-
-.price{
-    font-size:40px;
     font-weight:bold;
     color:#ffe66d;
-    margin-bottom:20px;
+    margin-bottom:18px;
 }
 
-.price-box ul{
-    list-style:none;
-    text-align:left;
-    margin:10px 0 25px;
-}
-
-.price-box li{
-    font-size:18px;
-    margin:12px 0;
-}
-
-.price-btn{
+.buy-btn{
     display:inline-block;
+    padding:13px 25px;
     background:#2d7ff9;
     color:white;
     text-decoration:none;
-    padding:14px 25px;
     border-radius:30px;
-    font-size:18px;
     font-weight:bold;
+}
+
+/* PAYMENT */
+
+#payment{
+    background:#101b38;
+}
+
+.payment-card{
+    width:100%;
+    max-width:850px;
+    background:linear-gradient(135deg,#3b0754,#7b1fa2);
+    border:2px solid #e56cff;
+    border-radius:30px;
+    padding:40px 25px;
+    text-align:center;
+    box-shadow:0 15px 35px rgba(123,31,162,.35);
+}
+
+.payment-card h2{
+    font-size:40px;
+    margin-bottom:25px;
+}
+
+.payment-method{
+    padding:20px;
+    margin:15px 0;
+    border-radius:20px;
+    background:rgba(0,0,0,.25);
+    border:1px solid rgba(255,255,255,.2);
+}
+
+.payment-method h3{
+    font-size:25px;
+    margin-bottom:10px;
+}
+
+.payment-number{
+    font-size:22px;
+    font-weight:bold;
+    color:#ffe66d;
+}
+
+/* ORDER */
+
+#order{
+    background:#033b2c;
+}
+
+.order-card{
+    width:100%;
+    max-width:800px;
+    background:linear-gradient(135deg,#087f5b,#033b2c);
+    border:2px solid #52efb4;
+    border-radius:30px;
+    padding:40px 25px;
+    text-align:center;
+}
+
+.order-card h2{
+    font-size:40px;
+    margin-bottom:25px;
+}
+
+.order-card p{
+    font-size:18px;
+    line-height:1.7;
+    margin-bottom:25px;
+}
+
+.order-btn-large{
+    display:block;
+    width:90%;
+    max-width:450px;
+    margin:15px auto;
+    padding:16px;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.whatsapp{
+    background:#25d366;
+}
+
+.gmail{
+    background:#ea4335;
 }
 
 /* CONTACT */
@@ -472,14 +374,6 @@ section{
     font-weight:bold;
 }
 
-.gmail{
-    background:#ea4335;
-}
-
-.whatsapp{
-    background:#25d366;
-}
-
 /* FOOTER */
 
 footer{
@@ -498,8 +392,8 @@ footer{
     }
 
     nav a{
-        font-size:16px;
-        padding:9px 13px;
+        font-size:14px;
+        padding:9px 12px;
     }
 
     section{
@@ -518,31 +412,16 @@ footer{
         font-size:17px;
     }
 
-    .card h2,
-    .skills-card h2,
-    .services-card h2,
-    .projects-card h2,
-    .pricing-card h2,
+    .info-card h2,
+    .topup-card h2,
+    .payment-card h2,
+    .order-card h2,
     .contact-card h2{
         font-size:32px;
     }
 
-    .skills{
+    .diamond-grid{
         grid-template-columns:1fr;
-    }
-
-    .skill:nth-child(3){
-        grid-column:auto;
-    }
-
-    .services-grid,
-    .projects-grid,
-    .pricing-grid{
-        grid-template-columns:1fr;
-    }
-
-    .price-box{
-        min-height:400px;
     }
 
 }
@@ -552,38 +431,48 @@ footer{
 
 <body>
 
+<!-- NAVIGATION -->
+
 <nav>
 
 <a href="#home">🏠 Home</a>
-<a href="#about">👤 About</a>
-<a href="#skills">💻 Skills</a>
-<a href="#services">🛠️ Services</a>
-<a href="#projects">🚀 Projects</a>
+<a href="#topup">💎 Top Up</a>
+<a href="#payment">💳 Payment</a>
+<a href="#order">📦 Order</a>
 <a href="#contact">📞 Contact</a>
-<a href="#pricing">💰 Pricing</a>
 
 </nav>
 
-<section id="home" class="hero">
+
+<!-- HOME -->
+
+<section id="home">
 
 <div class="hero-content">
 
-<p class="welcome">👋 Hello, I'm Sazid</p>
+<p class="welcome">🔥 Welcome to Sazid Top Up</p>
 
 <h1>
-I Build <span>Modern Websites</span> 💻
+Free Fire <span>Diamond Top Up</span> 💎
 </h1>
 
 <p class="hero-text">
-আমি আধুনিক, সুন্দর এবং মোবাইল-ফ্রেন্ডলি ওয়েবসাইট তৈরি করি।
-আপনার প্রয়োজন অনুযায়ী সুন্দর ও ব্যবহারযোগ্য ওয়েবসাইট তৈরি করতে আমি প্রস্তুত।
+
+দ্রুত ও সহজে Free Fire Diamond Top Up করুন।
+আপনার Player UID দিয়ে পছন্দের Diamond Package নির্বাচন করুন
+এবং Payment সম্পন্ন করুন।
+
 </p>
 
 <div class="hero-buttons">
 
-<a href="#contact" class="hire-btn">💼 Hire Me</a>
+<a href="#topup" class="hero-btn topup-btn">
+💎 Buy Diamonds
+</a>
 
-<a href="#skills" class="work-btn">🚀 View My Skills</a>
+<a href="#order" class="hero-btn order-btn">
+📦 Order Now
+</a>
 
 </div>
 
@@ -591,35 +480,160 @@ I Build <span>Modern Websites</span> 💻
 
 </section>
 
+
+<!-- ABOUT -->
+
 <section id="about">
 
-<div class="card">
+<div class="info-card">
 
-<h2>👤 About Me</h2>
+<h2>💎 Sazid Top Up</h2>
 
 <p>
-আমি Sazid, একজন ওয়েব ডিজাইনার।
-আমি আধুনিক, সুন্দর এবং মোবাইল-ফ্রেন্ডলি ওয়েবসাইট তৈরি করি।
-HTML, CSS ও JavaScript ব্যবহার করে ব্যক্তিগত, ব্যবসায়িক এবং বিভিন্ন ধরনের ওয়েবসাইট ডিজাইন করি।
-আপনার প্রয়োজন অনুযায়ী সুন্দর ও ব্যবহারযোগ্য ওয়েবসাইট তৈরি করতে আমি প্রস্তুত। 💻✨
+
+Sazid Top Up একটি সহজ ও সুন্দর Free Fire Top Up Website।
+এখানে আপনার Player UID ব্যবহার করে বিভিন্ন Diamond Package
+সম্পর্কে তথ্য দেখতে পারবেন এবং Order করার জন্য যোগাযোগ করতে পারবেন।
+
+<br><br>
+
+⚡ Fast Service &nbsp; | &nbsp;
+💎 Diamond Top Up &nbsp; | &nbsp;
+📱 Mobile Friendly
+
 </p>
 
 </div>
 
 </section>
 
-<section id="skills">
 
-<div class="skills-card">
+<!-- TOP UP -->
 
-<h2>💻 My Skills</h2>
+<section id="topup">
 
-<div class="skills">
+<div class="topup-card">
 
-<div class="skill">HTML 🌐</div>
-<div class="skill">CSS 🎨</div>
-<div class="skill">JavaScript ⚡</div>
-<div class="skill">Web Design 📱</div>
+<h2>💎 Select Diamond Package</h2>
+
+
+<div class="uid-box">
+
+<label>🎮 আপনার Free Fire UID দিন</label>
+
+<input
+type="number"
+id="uid"
+placeholder="Enter Player UID"
+>
+
+</div>
+
+
+<div class="diamond-grid">
+
+
+<div class="diamond-box">
+
+<div class="diamond-icon">💎</div>
+
+<h3>100 Diamonds</h3>
+
+<div class="diamond-price">
+৳50
+</div>
+
+<a href="#order" class="buy-btn">
+Buy Now
+</a>
+
+</div>
+
+
+<div class="diamond-box">
+
+<div class="diamond-icon">💎</div>
+
+<h3>210 Diamonds</h3>
+
+<div class="diamond-price">
+৳100
+</div>
+
+<a href="#order" class="buy-btn">
+Buy Now
+</a>
+
+</div>
+
+
+<div class="diamond-box">
+
+<div class="diamond-icon">💎</div>
+
+<h3>310 Diamonds</h3>
+
+<div class="diamond-price">
+৳150
+</div>
+
+<a href="#order" class="buy-btn">
+Buy Now
+</a>
+
+</div>
+
+
+<div class="diamond-box">
+
+<div class="diamond-icon">💎</div>
+
+<h3>520 Diamonds</h3>
+
+<div class="diamond-price">
+৳250
+</div>
+
+<a href="#order" class="buy-btn">
+Buy Now
+</a>
+
+</div>
+
+
+<div class="diamond-box">
+
+<div class="diamond-icon">💎</div>
+
+<h3>1060 Diamonds</h3>
+
+<div class="diamond-price">
+৳500
+</div>
+
+<a href="#order" class="buy-btn">
+Buy Now
+</a>
+
+</div>
+
+
+<div class="diamond-box">
+
+<div class="diamond-icon">💎</div>
+
+<h3>2180 Diamonds</h3>
+
+<div class="diamond-price">
+৳1000
+</div>
+
+<a href="#order" class="buy-btn">
+Buy Now
+</a>
+
+</div>
+
 
 </div>
 
@@ -627,157 +641,102 @@ HTML, CSS ও JavaScript ব্যবহার করে ব্যক্তি�
 
 </section>
 
-<section id="services">
 
-<div class="services-card">
+<!-- PAYMENT -->
 
-<h2>🛠️ My Services</h2>
+<section id="payment">
 
-<div class="services-grid">
+<div class="payment-card">
 
-<div class="service-box">
-<h3>🌐 Website Design</h3>
-<p>সুন্দর ও আধুনিক ওয়েবসাইট তৈরি করি।</p>
-</div>
+<h2>💳 Payment Methods</h2>
 
-<div class="service-box">
-<h3>🚀 Landing Page</h3>
-<p>ব্যবসা ও পণ্যের জন্য আকর্ষণীয় Landing Page তৈরি করি।</p>
-</div>
+<div class="payment-method">
 
-<div class="service-box">
-<h3>💻 HTML & CSS</h3>
-<p>HTML ও CSS দিয়ে ওয়েবসাইটের সুন্দর ডিজাইন তৈরি করি।</p>
+<h3>🟢 bKash</h3>
+
+<p>Payment Number</p>
+
+<div class="payment-number">
+01XXXXXXXXX
 </div>
 
 </div>
 
-</div>
 
-</section>
+<div class="payment-method">
 
-<section id="projects">
+<h3>🔴 Nagad</h3>
 
-<div class="projects-card">
+<p>Payment Number</p>
 
-<h2>🚀 My Projects</h2>
-
-<div class="projects-grid">
-
-<div class="project-box">
-<h3>🌐 Personal Website</h3>
-<p>আমার নিজের তৈরি একটি আধুনিক ওয়েবসাইট।</p>
-<a href="#home" class="project-btn">View Project</a>
-</div>
-
-<div class="project-box">
-<h3>🏢 Business Website</h3>
-<p>ব্যবসার জন্য সুন্দর ও সহজ ওয়েবসাইট ডিজাইন।</p>
-<a href="#contact" class="project-btn">Hire Me</a>
-</div>
-
-<div class="project-box">
-<h3>📱 Landing Page</h3>
-<p>মোবাইল-ফ্রেন্ডলি আকর্ষণীয় Landing Page।</p>
-<a href="#contact" class="project-btn">Hire Me</a>
+<div class="payment-number">
+01XXXXXXXXX
 </div>
 
 </div>
+
+
+<p style="margin-top:20px;">
+⚠️ Payment করার আগে সঠিক Number ও Amount নিশ্চিত করুন।
+</p>
 
 </div>
 
 </section>
 
-<section id="pricing">
 
-<div class="pricing-card">
+<!-- ORDER -->
 
-<h2>💰 My Pricing</h2>
+<section id="order">
 
-<div class="pricing-grid">
+<div class="order-card">
 
-<div class="price-box">
+<h2>📦 Order Now</h2>
 
-<div>
+<p>
 
-<h3>🌱 Basic</h3>
+Diamond Package নির্বাচন করার পর Payment করুন।
+তারপর আপনার <b>Player UID, Package এবং Payment Transaction ID</b>
+দিয়ে আমাদের সাথে যোগাযোগ করুন।
 
-<div class="price">৳500+</div>
+</p>
 
-<ul>
-<li>✅ Simple Web Page</li>
-<li>✅ HTML & CSS</li>
-<li>✅ Mobile Friendly</li>
-</ul>
 
-</div>
+<a
+href="https://wa.me/8801993140297"
+class="order-btn-large whatsapp"
+>
+💬 WhatsApp এ Order করুন
+</a>
 
-<a href="#contact" class="price-btn">Choose Plan</a>
 
-</div>
-
-<div class="price-box">
-
-<div>
-
-<h3>🚀 Standard</h3>
-
-<div class="price">৳1,500+</div>
-
-<ul>
-<li>✅ Modern Website</li>
-<li>✅ HTML, CSS & JavaScript</li>
-<li>✅ Mobile Friendly</li>
-</ul>
-
-</div>
-
-<a href="#contact" class="price-btn">Choose Plan</a>
-
-</div>
-
-<div class="price-box">
-
-<div>
-
-<h3>💎 Premium</h3>
-
-<div class="price">৳3,000+</div>
-
-<ul>
-<li>✅ Business Website</li>
-<li>✅ Modern Design</li>
-<li>✅ Responsive Layout</li>
-</ul>
-
-</div>
-
-<a href="#contact" class="price-btn">Choose Plan</a>
-
-</div>
-
-</div>
+<a
+href="https://mail.google.com/mail/?view=cm&fs=1&to=moktadir032@gmail.com"
+class="order-btn-large gmail"
+>
+📧 Gmail এ যোগাযোগ করুন
+</a>
 
 </div>
 
 </section>
+
+
+<!-- CONTACT -->
 
 <section id="contact">
 
 <div class="contact-card">
 
-<h2>📞 Contact Me</h2>
+<h2>📞 Contact Us</h2>
 
 <p>
-আপনার ওয়েবসাইট তৈরি করতে আমার সাথে যোগাযোগ করুন।
+
+Top Up অথবা Order সংক্রান্ত কোনো সমস্যা হলে
+আমাদের সাথে যোগাযোগ করুন।
+
 </p>
 
-<a
-href="https://mail.google.com/mail/?view=cm&fs=1&to=moktadir032@gmail.com"
-class="contact-btn gmail"
->
-📧 Gmail
-</a>
 
 <a
 href="https://wa.me/8801993140297"
@@ -786,17 +745,33 @@ class="contact-btn whatsapp"
 💬 WhatsApp
 </a>
 
+
+<a
+href="https://mail.google.com/mail/?view=cm&fs=1&to=moktadir032@gmail.com"
+class="contact-btn gmail"
+>
+📧 Gmail
+</a>
+
 </div>
 
 </section>
 
+
+<!-- FOOTER -->
+
 <footer>
 
 <p>
-© 2026 Sazid's Website. All Rights Reserved.
+© 2026 Sazid Top Up. All Rights Reserved.
+</p>
+
+<p style="margin-top:10px;">
+💎 Fast • Easy • Trusted
 </p>
 
 </footer>
 
+
 </body>
-</html>
+    </html>
