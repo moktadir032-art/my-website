@@ -1,285 +1,293 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#10111b">
-  <title>Free Fire Top Up BD</title>
-  <style>
-    *{box-sizing:border-box}
-    body{margin:0;background:#10111b;color:#f5f5fa;font-family:Arial,sans-serif}
-    header{padding:24px 16px;text-align:center;background:linear-gradient(135deg,#27104d,#111827)}
-    header h1{margin:0;color:#ffb52e;font-size:27px}
-    header p{color:#ddd;margin-bottom:0}
-    main{max-width:720px;margin:auto;padding:16px}
-    .card{background:#1b1d2b;border:1px solid #303247;border-radius:14px;padding:16px;margin-bottom:16px}
-    h2{font-size:19px;margin-top:0;color:#ffbd45}
-    label{display:block;font-size:14px;margin:13px 0 6px}
-    input,select{width:100%;padding:12px;border-radius:9px;border:1px solid #454960;background:#111320;color:white;font-size:16px}
-    .packages{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-    .pkg{padding:13px 8px;background:#121421;border:1px solid #3b3e55;border-radius:10px;color:white;text-align:center;cursor:pointer}
-    .pkg strong{display:block;color:#ffbd45;margin-bottom:6px}
-    .pkg.selected{border:2px solid #ffb52e;background:#302416}
-    button,.button{display:block;width:100%;padding:13px;border:0;border-radius:10px;background:#ffb52e;color:#201400;font-size:16px;font-weight:bold;cursor:pointer;text-align:center;text-decoration:none;margin-top:12px}
-    button:disabled{opacity:.55;cursor:not-allowed}
-    .secondary{background:#303349;color:white}
-    .muted{font-size:13px;color:#b8bbcb;line-height:1.6}
-    .notice{padding:11px;border-radius:9px;background:#292236;color:#f1d8ff;font-size:14px;line-height:1.6}
-    .order{border-top:1px solid #393b50;padding:12px 0;overflow-wrap:anywhere}
-    .status{color:#ffcf72;font-weight:bold}
-    footer{text-align:center;color:#aaa;padding:20px;font-size:13px}
-    a{color:#ffcf72}
-    @media(min-width:520px){.packages{grid-template-columns:repeat(3,minmax(0,1fr))}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10111b">
+<title>Free Fire Top Up BD</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#10111b;color:#f5f5fa;font-family:Arial,sans-serif}
+header{text-align:center;padding:25px 12px;background:linear-gradient(135deg,#351052,#111827)}
+header h1{color:#ffbd45;margin:0;font-size:27px}
+header p{color:#ddd}
+main{max-width:700px;margin:auto;padding:14px}
+.card{background:#1b1d2b;border:1px solid #303247;border-radius:14px;padding:16px;margin-bottom:15px}
+h2{font-size:19px;color:#ffbd45;margin-top:0}
+label{display:block;margin:13px 0 6px;font-size:14px}
+input,select{width:100%;padding:12px;border-radius:9px;border:1px solid #454960;background:#111320;color:white;font-size:16px}
+.packages{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.pkg{background:#121421;color:white;border:1px solid #454960;border-radius:10px;padding:13px 5px;cursor:pointer}
+.pkg strong,.pkg span{display:block}
+.pkg strong{color:#ffbd45;margin-bottom:7px}
+.pkg.selected{border:2px solid #ffbd45;background:#302416}
+button,.button{width:100%;padding:13px;border:0;border-radius:10px;background:#ffbd45;color:#211600;font-size:16px;font-weight:bold;cursor:pointer;margin-top:12px;text-align:center;text-decoration:none;display:block}
+button:disabled{opacity:.55}
+.secondary{background:#303349;color:white}
+.notice{background:#292236;border-radius:9px;padding:12px;line-height:1.6}
+.small{font-size:13px;color:#b8bbcb;line-height:1.6}
+.order{border-top:1px solid #393b50;padding:12px 0;overflow-wrap:anywhere}
+.status{color:#ffcf72;font-weight:bold}
+footer{text-align:center;padding:20px;color:#aaa;font-size:13px}
+@media(min-width:520px){.packages{grid-template-columns:repeat(3,minmax(0,1fr))}}
+</style>
 </head>
 <body>
 <header>
-  <h1>🔥 Free Fire Top Up BD</h1>
-  <p>দ্রুত ও সহজে Free Fire Top Up অর্ডার করুন</p>
+<h1>🔥 Free Fire Top Up BD</h1>
+<p>সহজে অর্ডার করুন, পেমেন্ট যাচাইয়ের পর ডেলিভারি</p>
 </header>
 
 <main>
-  <section class="card">
-    <h2>🎮 Player Information</h2>
-    <label for="uid">Free Fire Player UID *</label>
-    <input id="uid" inputmode="numeric" maxlength="24" placeholder="আপনার Player UID লিখুন">
+<section class="card">
+<h2>🎮 Player Information</h2>
+<label for="uid">Free Fire Player UID *</label>
+<input id="uid" inputmode="numeric" maxlength="24" placeholder="Player UID লিখুন">
+<label for="playerName">Player Name (ঐচ্ছিক)</label>
+<input id="playerName" maxlength="40" placeholder="গেমের নাম">
+<label for="region">Region</label>
+<select id="region"><option value="Bangladesh">Bangladesh</option></select>
+</section>
 
-    <label for="playerName">Player Name (ঐচ্ছিক)</label>
-    <input id="playerName" maxlength="40" placeholder="আপনার গেমের নাম">
+<section class="card">
+<h2>💎 Diamond ও Membership</h2>
+<div class="packages" id="packages"></div>
+<p class="small">প্যাকেজ ও দাম নিজের দোকানের প্রকৃত মূল্য অনুযায়ী পরিবর্তন করুন।</p>
+</section>
 
-    <label for="region">Region</label>
-    <select id="region">
-      <option value="Bangladesh">Bangladesh</option>
-    </select>
-  </section>
+<section class="card">
+<h2>💳 পেমেন্ট</h2>
+<label for="paymentMethod">পেমেন্ট পদ্ধতি *</label>
+<select id="paymentMethod">
+<option value="bKash">bKash</option>
+<option value="Nagad">Nagad</option>
+</select>
+<div class="notice">
+<strong>bKash নম্বর:</strong> আপনার সঠিক পেমেন্ট নম্বর বসান।<br>
+<strong>Nagad নম্বর:</strong> আপনার সঠিক পেমেন্ট নম্বর বসান।<br><br>
+টাকা পাঠানোর আগে নম্বর ও পেমেন্টের ধরন নিশ্চিত করুন।
+</div>
+<label for="transactionId">Transaction ID (TrxID) *</label>
+<input id="transactionId" maxlength="100" placeholder="পেমেন্টের TrxID লিখুন">
+<div id="summary" class="notice" style="margin-top:12px">একটি প্যাকেজ নির্বাচন করুন।</div>
+<button id="orderBtn">অর্ডার জমা দিন</button>
+<p id="message" class="small" role="status"></p>
+</section>
 
-  <section class="card">
-    <h2>💎 প্যাকেজ নির্বাচন করুন</h2>
-    <p class="muted">প্যাকেজের দাম ও ডায়মন্ডের পরিমাণ অর্ডার দেওয়ার আগে যাচাই করে নিন।</p>
-    <div class="packages" id="packages"></div>
-  </section>
+<section class="card">
+<h2>📦 আমার অর্ডার</h2>
+<div id="orders"><p class="small">Firebase সংযোগ হচ্ছে...</p></div>
+</section>
 
-  <section class="card">
-    <h2>💳 পেমেন্ট তথ্য</h2>
-    <label for="paymentMethod">পেমেন্ট পদ্ধতি *</label>
-    <select id="paymentMethod">
-      <option value="bKash">bKash</option>
-      <option value="Nagad">Nagad</option>
-    </select>
-
-    <div class="notice" style="margin-top:12px">
-      <strong>পেমেন্ট করার আগে:</strong><br>
-      আপনার সঠিক Merchant/Personal পেমেন্ট নম্বর এখানে বসাতে হবে। নম্বর নিশ্চিত না হওয়া পর্যন্ত টাকা পাঠাবেন না।
-      <br><br>
-      <strong>bKash নম্বর:</strong> এখানে আপনার পেমেন্ট নম্বর বসান<br>
-      <strong>Nagad নম্বর:</strong> এখানে আপনার পেমেন্ট নম্বর বসান
-    </div>
-
-    <label for="transactionId">Transaction ID (TrxID) *</label>
-    <input id="transactionId" maxlength="100" placeholder="পেমেন্টের TrxID লিখুন">
-
-    <p class="muted">পেমেন্ট সম্পন্ন করার পর পাওয়া TrxID লিখুন। ভুল বা ভুয়া তথ্য দিলে অর্ডার বাতিল হতে পারে।</p>
-    <div id="summary" class="notice">প্রথমে একটি প্যাকেজ নির্বাচন করুন।</div>
-    <button id="orderBtn">অর্ডার জমা দিন</button>
-    <p id="message" class="muted" role="status"></p>
-  </section>
-
-  <section class="card">
-    <h2>📦 আপনার অর্ডার</h2>
-    <p class="muted">এই ডিভাইসে আপনার বর্তমান Anonymous Firebase পরিচয়ের অর্ডারগুলো দেখানো হবে।</p>
-    <div id="orders"><p class="muted">অর্ডার লোড হচ্ছে...</p></div>
-  </section>
-
-  <section class="card">
-    <h2>📞 কাস্টমার সাপোর্ট</h2>
-    <p class="muted">অর্ডার বা পেমেন্টের সাহায্যের জন্য WhatsApp-এ যোগাযোগ করুন।</p>
-    <a class="button" href="https://wa.me/8801930331034" target="_blank" rel="noopener">WhatsApp Support</a>
-  </section>
+<section class="card">
+<h2>📞 কাস্টমার সাপোর্ট</h2>
+<p class="small">অর্ডার সম্পর্কে সাহায্য পেতে WhatsApp-এ যোগাযোগ করুন।</p>
+<a class="button" href="https://wa.me/8801930331034" target="_blank" rel="noopener">WhatsApp Support</a>
+</section>
 </main>
 
-<footer>Free Fire Top Up BD · অর্ডার নিশ্চিত হওয়ার আগে পেমেন্ট যাচাই করা হবে।</footer>
+<footer>Free Fire Top Up BD · পেমেন্ট যাচাই না হওয়া পর্যন্ত অর্ডার Pending থাকবে।</footer>
 
 <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-  import {
-    getFirestore, collection, addDoc, query, where, orderBy,
-    onSnapshot, serverTimestamp
-  } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
-  import {
-    getAuth, signInAnonymously, onAuthStateChanged
-  } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+import {
+  getFirestore, collection, addDoc, query, where,
+  onSnapshot, serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+import {
+  getAuth, signInAnonymously, onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyDfAxgZx0G9b1Xx4uZgKxRRjaPtVZgQyYiqF0",
-    authDomain: "free-fire-top-up-bd-76bc9.firebaseapp.com",
-    projectId: "free-fire-top-up-bd-76bc9",
-    storageBucket: "free-fire-top-up-bd-76bc9.firebasestorage.app",
-    messagingSenderId: "70612759846",
-    appId: "1:70612759846:web:3d7a1f463889c45b5fbde7"
-  };
+/*
+  নিচের firebaseConfig-টি Firebase Console-এর Config
+  থেকে পাওয়া আসল মান দিয়ে প্রতিস্থাপন করুন।
+*/
+const firebaseConfig = {
+  apiKey: "PASTE_YOUR_REAL_API_KEY_HERE",
+  authDomain: "free-fire-top-up-bd-76bc9.firebaseapp.com",
+  projectId: "free-fire-top-up-bd-76bc9",
+  storageBucket: "free-fire-top-up-bd-76bc9.firebasestorage.app",
+  messagingSenderId: "70612759846",
+  appId: "1:70612759846:web:3d7a1f463889c45b5fbde7"
+};
 
-  // নিজের প্রকৃত প্যাকেজ ও দাম দিয়ে নিচের তালিকা যাচাই/পরিবর্তন করুন।
-  const products = [
-    {id:"d25", name:"25 Diamonds", price:25},
-    {id:"d50", name:"50 Diamonds", price:40},
-    {id:"d115", name:"115 Diamonds", price:80},
-    {id:"d240", name:"240 Diamonds", price:160},
-    {id:"d355", name:"355 Diamonds", price:240},
-    {id:"d610", name:"610 Diamonds", price:400},
-    {id:"weekly", name:"Weekly Membership", price:160},
-    {id:"monthly", name:"Monthly Membership", price:800}
-  ];
+// উদাহরণমূলক দাম। প্রকাশের আগে নিজের সঠিক দাম বসান।
+const products = [
+  {id:"d25",name:"25 Diamonds",price:25},
+  {id:"d50",name:"50 Diamonds",price:40},
+  {id:"d115",name:"115 Diamonds",price:80},
+  {id:"d240",name:"240 Diamonds",price:160},
+  {id:"d355",name:"355 Diamonds",price:240},
+  {id:"d610",name:"610 Diamonds",price:400},
+  {id:"weekly",name:"Weekly Membership",price:160},
+  {id:"monthly",name:"Monthly Membership",price:800}
+];
 
-  const $ = id => document.getElementById(id);
-  let selected = null;
-  let currentUser = null;
-  let stopOrdersListener = null;
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-  const auth = getAuth(app);
+const $ = id => document.getElementById(id);
+let selected = null;
+let currentUser = null;
+let stopOrders = null;
 
-  function showMessage(text) {
-    $("message").textContent = text;
-  }
+function message(text){ $("message").textContent = text; }
 
-  function renderPackages() {
-    $("packages").replaceChildren();
-    products.forEach(product => {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "pkg";
-      button.innerHTML = `<strong>${product.name}</strong><span>৳${product.price}</span>`;
-      button.addEventListener("click", () => {
-        selected = product;
-        document.querySelectorAll(".pkg").forEach(el => el.classList.remove("selected"));
-        button.classList.add("selected");
-        $("summary").textContent = `নির্বাচিত: ${product.name} — ৳${product.price}`;
-      });
-      $("packages").appendChild(button);
+function renderPackages(){
+  $("packages").replaceChildren();
+  products.forEach(p=>{
+    const b=document.createElement("button");
+    b.type="button";
+    b.className="pkg";
+    const name=document.createElement("strong");
+    name.textContent=p.name;
+    const price=document.createElement("span");
+    price.textContent="৳"+p.price;
+    b.append(name,price);
+    b.addEventListener("click",()=>{
+      selected=p;
+      document.querySelectorAll(".pkg").forEach(x=>x.classList.remove("selected"));
+      b.classList.add("selected");
+      $("summary").textContent=`নির্বাচিত: ${p.name} — ৳${p.price}`;
     });
+    $("packages").appendChild(b);
+  });
+}
+
+function showOrders(snapshot){
+  const box=$("orders");
+  box.replaceChildren();
+
+  if(snapshot.empty){
+    const p=document.createElement("p");
+    p.className="small";
+    p.textContent="এখনও কোনো অর্ডার নেই।";
+    box.appendChild(p);
+    return;
   }
 
-  function renderOrders(snapshot) {
-    const container = $("orders");
-    container.replaceChildren();
-
-    if (snapshot.empty) {
-      const p = document.createElement("p");
-      p.className = "muted";
-      p.textContent = "এখনও কোনো অর্ডার পাওয়া যায়নি।";
-      container.appendChild(p);
-      return;
-    }
-
-    snapshot.forEach(docSnap => {
-      const data = docSnap.data();
-      const item = document.createElement("div");
-      item.className = "order";
-
-      const title = document.createElement("strong");
-      title.textContent = `${data.packageName || "প্যাকেজ"} — ৳${data.price}`;
-      const details = document.createElement("p");
-      details.className = "muted";
-      details.textContent = `Order ID: ${docSnap.id} | UID: ${data.uid} | পেমেন্ট: ${data.paymentMethod} | TrxID: ${data.transactionId}`;
-      const status = document.createElement("p");
-      status.className = "status";
-      status.textContent = `স্ট্যাটাস: ${data.status || "pending"}`;
-
-      item.append(title, details, status);
-      container.appendChild(item);
-    });
-  }
-
-  function listenToOrders(user) {
-    if (stopOrdersListener) stopOrdersListener();
-
-    const q = query(
-      collection(db, "orders"),
-      where("ownerUid", "==", user.uid),
-      orderBy("createdAt", "desc")
-    );
-
-    stopOrdersListener = onSnapshot(q, renderOrders, error => {
-      console.error(error);
-      $("orders").textContent = "অর্ডার লোড করা যায়নি। Firestore Rules ও সংযোগ যাচাই করুন।";
-    });
-  }
-
-  $("orderBtn").addEventListener("click", async () => {
-    if (!currentUser) {
-      showMessage("Firebase সংযোগ হচ্ছে। একটু পরে আবার চেষ্টা করুন।");
-      return;
-    }
-
-    const uid = $("uid").value.trim();
-    const playerName = $("playerName").value.trim();
-    const paymentMethod = $("paymentMethod").value;
-    const transactionId = $("transactionId").value.trim();
-
-    if (!/^[0-9]{5,24}$/.test(uid)) {
-      showMessage("সঠিক Player UID লিখুন (৫–২৪টি সংখ্যা)।");
-      return;
-    }
-    if (!selected) {
-      showMessage("একটি প্যাকেজ নির্বাচন করুন।");
-      return;
-    }
-    if (transactionId.length < 4) {
-      showMessage("পেমেন্টের সঠিক Transaction ID লিখুন।");
-      return;
-    }
-
-    const button = $("orderBtn");
-    button.disabled = true;
-    showMessage("অর্ডার জমা হচ্ছে...");
-
-    try {
-      const docRef = await addDoc(collection(db, "orders"), {
-        ownerUid: currentUser.uid,
-        uid,
-        playerName,
-        region: "Bangladesh",
-        packageId: selected.id,
-        packageName: selected.name,
-        price: selected.price,
-        paymentMethod,
-        transactionId,
-        status: "pending",
-        createdAt: serverTimestamp()
-      });
-
-      showMessage(`অর্ডার জমা হয়েছে। Order ID: ${docRef.id}। পেমেন্ট যাচাই না হওয়া পর্যন্ত Pending থাকবে।`);
-      $("uid").value = "";
-      $("playerName").value = "";
-      $("transactionId").value = "";
-      selected = null;
-      document.querySelectorAll(".pkg").forEach(el => el.classList.remove("selected"));
-      $("summary").textContent = "প্রথমে একটি প্যাকেজ নির্বাচন করুন।";
-    } catch (error) {
-      console.error(error);
-      showMessage("অর্ডার জমা হয়নি। Firebase Authentication, Firestore Rules এবং ইন্টারনেট সংযোগ যাচাই করুন।");
-    } finally {
-      button.disabled = false;
-    }
+  const docs=[];
+  snapshot.forEach(d=>docs.push({id:d.id,...d.data()}));
+  docs.sort((a,b)=>{
+    const ta=a.createdAt?.toMillis?.()||0;
+    const tb=b.createdAt?.toMillis?.()||0;
+    return tb-ta;
   });
 
-  renderPackages();
-
-  onAuthStateChanged(auth, async user => {
-    if (user) {
-      currentUser = user;
-      listenToOrders(user);
-      return;
-    }
-
-    try {
-      await signInAnonymously(auth);
-    } catch (error) {
-      console.error(error);
-      showMessage("Firebase Anonymous Authentication চালু আছে কি না যাচাই করুন।");
-      $("orders").textContent = "সাইন-ইন করা যায়নি। Firebase Authentication সেটিংস যাচাই করুন।";
-    }
+  docs.forEach(o=>{
+    const div=document.createElement("div");
+    div.className="order";
+    const title=document.createElement("strong");
+    title.textContent=`${o.packageName} — ৳${o.price}`;
+    const detail=document.createElement("p");
+    detail.className="small";
+    detail.textContent=`Order ID: ${o.id} | UID: ${o.uid} | ${o.paymentMethod} | TrxID: ${o.transactionId}`;
+    const status=document.createElement("p");
+    status.className="status";
+    status.textContent="স্ট্যাটাস: "+(o.status||"pending");
+    div.append(title,detail,status);
+    box.appendChild(div);
   });
+}
+
+async function start(){
+  if(firebaseConfig.apiKey==="PASTE_YOUR_REAL_API_KEY_HERE"){
+    message("প্রথমে Firebase Config-এর আসল apiKey বসান।");
+    $("orders").textContent="Firebase Config সম্পূর্ণ করা হয়নি।";
+    return;
+  }
+
+  try{
+    const app=initializeApp(firebaseConfig);
+    const db=getFirestore(app);
+    const auth=getAuth(app);
+
+    onAuthStateChanged(auth,async user=>{
+      if(!user){
+        try{await signInAnonymously(auth);}
+        catch(e){
+          console.error(e);
+          message("Anonymous Authentication চালু আছে কি না যাচাই করুন।");
+        }
+        return;
+      }
+
+      currentUser=user;
+      if(stopOrders) stopOrders();
+
+      const q=query(
+        collection(db,"orders"),
+        where("ownerUid","==",user.uid)
+      );
+
+      stopOrders=onSnapshot(q,showOrders,error=>{
+        console.error(error);
+        $("orders").textContent="অর্ডার লোড হয়নি। Firestore Rules যাচাই করুন।";
+      });
+    });
+
+    $("orderBtn").addEventListener("click",async()=>{
+      if(!currentUser){
+        message("Firebase সংযোগের জন্য অপেক্ষা করুন।");
+        return;
+      }
+
+      const uid=$("uid").value.trim();
+      const playerName=$("playerName").value.trim();
+      const paymentMethod=$("paymentMethod").value;
+      const transactionId=$("transactionId").value.trim();
+
+      if(!/^[0-9]{5,24}$/.test(uid)){
+        message("সঠিক Player UID লিখুন।");
+        return;
+      }
+      if(!selected){
+        message("একটি প্যাকেজ নির্বাচন করুন।");
+        return;
+      }
+      if(transactionId.length<4){
+        message("সঠিক Transaction ID লিখুন।");
+        return;
+      }
+
+      const btn=$("orderBtn");
+      btn.disabled=true;
+      message("অর্ডার জমা হচ্ছে...");
+
+      try{
+        const ref=await addDoc(collection(db,"orders"),{
+          ownerUid:currentUser.uid,
+          uid,
+          playerName,
+          region:"Bangladesh",
+          packageId:selected.id,
+          packageName:selected.name,
+          price:selected.price,
+          paymentMethod,
+          transactionId,
+          status:"pending",
+          createdAt:serverTimestamp()
+        });
+
+        message(`অর্ডার জমা হয়েছে। Order ID: ${ref.id}। পেমেন্ট যাচাইয়ের অপেক্ষায় আছে।`);
+        $("uid").value="";
+        $("playerName").value="";
+        $("transactionId").value="";
+        selected=null;
+        document.querySelectorAll(".pkg").forEach(x=>x.classList.remove("selected"));
+        $("summary").textContent="একটি প্যাকেজ নির্বাচন করুন।";
+      }catch(e){
+        console.error(e);
+        message("অর্ডার জমা হয়নি। Config, Authentication ও Firestore Rules যাচাই করুন।");
+      }finally{
+        btn.disabled=false;
+      }
+    });
+  }catch(e){
+    console.error(e);
+    message("Firebase চালু হয়নি। Config-এর সব মান সঠিক কি না যাচাই করুন।");
+  }
+}
+
+renderPackages();
+start();
 </script>
 </body>
 </html>
