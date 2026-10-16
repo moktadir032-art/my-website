@@ -154,6 +154,44 @@ const products = [
 ];
 
 const $ = id => document.getElementById(id);
+
+const paymentNumbers = {
+  bKash: "01993140297",
+  Nagad: "01993140297"
+};
+
+$("paymentMethod").addEventListener("change", () => {
+  const method = $("paymentMethod").value;
+  const details = $("paymentDetails");
+
+  $("copyMessage").textContent = "";
+
+  if (!method) {
+    details.hidden = true;
+    $("paymentNumber").textContent = "";
+    $("paymentTitle").textContent = "";
+    return;
+  }
+
+  $("paymentTitle").textContent =
+    method === "bKash" ? "বিকাশ নম্বর:" : "নগদ নম্বর:";
+
+  $("paymentNumber").textContent = paymentNumbers[method];
+  details.hidden = false;
+});
+
+$("copyPaymentNumber").addEventListener("click", async () => {
+  const number = $("paymentNumber").textContent;
+
+  try {
+    await navigator.clipboard.writeText(number);
+    $("copyMessage").textContent = "নম্বর কপি হয়েছে!";
+  } catch (error) {
+    $("copyMessage").textContent =
+      "কপি করা যায়নি। নম্বরটি হাতে কপি করুন।";
+  }
+});
+  
 let selected = null;
 let currentUser = null;
 let stopOrders = null;
