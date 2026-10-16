@@ -58,15 +58,27 @@ footer{text-align:center;padding:20px;color:#aaa;font-size:13px}
 <section class="card">
 <h2>💳 পেমেন্ট</h2>
 <label for="paymentMethod">পেমেন্ট পদ্ধতি *</label>
-<select id="paymentMethod">
-<option value="bKash">bKash</option>
-<option value="Nagad">Nagad</option>
+
+<label for="paymentMethod">পেমেন্ট পদ্ধতি *</label>
+
+<select id="paymentMethod" required>
+  <option value="">পেমেন্ট মাধ্যম নির্বাচন করুন</option>
+  <option value="bKash">বিকাশ</option>
+  <option value="Nagad">নগদ</option>
 </select>
-<div class="notice">
-<strong>bKash নম্বর:</strong> আপনার সঠিক পেমেন্ট নম্বর বসান।<br>
-<strong>Nagad নম্বর:</strong> আপনার সঠিক পেমেন্ট নম্বর বসান।<br><br>
-টাকা পাঠানোর আগে নম্বর ও পেমেন্টের ধরন নিশ্চিত করুন।
+
+<div id="paymentDetails" class="notice" hidden>
+  <strong id="paymentTitle"></strong>
+
+  <div style="display:flex; align-items:center; gap:10px; margin-top:10px; flex-wrap:wrap;">
+    <span id="paymentNumber" style="font-weight:bold; font-size:18px;"></span>
+    <button id="copyPaymentNumber" type="button">নম্বর কপি</button>
+  </div>
+
+  <p id="copyMessage" class="small" aria-live="polite"></p>
+  <p class="small">পেমেন্ট করার আগে মাধ্যম ও নম্বর যাচাই করুন।</p>
 </div>
+  
 <label for="transactionId">Transaction ID (TrxID) *</label>
 <input id="transactionId" maxlength="100" placeholder="পেমেন্টের TrxID লিখুন">
 <div id="summary" class="notice" style="margin-top:12px">একটি প্যাকেজ নির্বাচন করুন।</div>
