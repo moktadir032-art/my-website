@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#10111b">
 <title>Free Fire Top Up BD</title>
+
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#10111b;color:#f5f5fa;font-family:Arial,sans-serif}
@@ -22,16 +23,20 @@ input,select{width:100%;padding:12px;border-radius:9px;border:1px solid #454960;
 .pkg strong{color:#ffbd45;margin-bottom:7px}
 .pkg.selected{border:2px solid #ffbd45;background:#302416}
 button,.button{width:100%;padding:13px;border:0;border-radius:10px;background:#ffbd45;color:#211600;font-size:16px;font-weight:bold;cursor:pointer;margin-top:12px;text-align:center;text-decoration:none;display:block}
-button:disabled{opacity:.55}
+button:disabled{opacity:.55;cursor:not-allowed}
 .secondary{background:#303349;color:white}
 .notice{background:#292236;border-radius:9px;padding:12px;line-height:1.6}
 .small{font-size:13px;color:#b8bbcb;line-height:1.6}
 .order{border-top:1px solid #393b50;padding:12px 0;overflow-wrap:anywhere}
 .status{color:#ffcf72;font-weight:bold}
 footer{text-align:center;padding:20px;color:#aaa;font-size:13px}
+[hidden]{display:none!important}
+.admin-order{background:#121421;border:1px solid #393b50;border-radius:10px;padding:12px;margin:12px 0}
+.admin-order select{margin-top:8px}
 @media(min-width:520px){.packages{grid-template-columns:repeat(3,minmax(0,1fr))}}
 </style>
 </head>
+
 <body>
 <header>
 <h1>🔥 Free Fire Top Up BD</h1>
@@ -41,12 +46,17 @@ footer{text-align:center;padding:20px;color:#aaa;font-size:13px}
 <main>
 <section class="card">
 <h2>🎮 Player Information</h2>
+
 <label for="uid">Free Fire Player UID *</label>
 <input id="uid" inputmode="numeric" maxlength="24" placeholder="Player UID লিখুন">
+
 <label for="playerName">Player Name (ঐচ্ছিক)</label>
 <input id="playerName" maxlength="40" placeholder="গেমের নাম">
+
 <label for="region">Region</label>
-<select id="region"><option value="Bangladesh">Bangladesh</option></select>
+<select id="region">
+<option value="Bangladesh">Bangladesh</option>
+</select>
 </section>
 
 <section class="card">
@@ -57,45 +67,52 @@ footer{text-align:center;padding:20px;color:#aaa;font-size:13px}
 
 <section class="card">
 <h2>💳 পেমেন্ট</h2>
-<label for="paymentMethod">পেমেন্ট পদ্ধতি *</label>
 
+<label for="paymentMethod">পেমেন্ট পদ্ধতি *</label>
 <select id="paymentMethod" required>
-  <option value="">পেমেন্ট মাধ্যম নির্বাচন করুন</option>
-  <option value="bKash">বিকাশ</option>
-  <option value="Nagad">নগদ</option>
+<option value="">পেমেন্ট মাধ্যম নির্বাচন করুন</option>
+<option value="bKash">বিকাশ</option>
+<option value="Nagad">নগদ</option>
 </select>
 
 <div id="paymentDetails" class="notice" hidden>
-  <strong id="paymentTitle"></strong>
-
-  <div style="display:flex; align-items:center; gap:10px; margin-top:10px; flex-wrap:wrap;">
-    <span id="paymentNumber" style="font-weight:bold; font-size:18px;"></span>
-    <button id="copyPaymentNumber" type="button">নম্বর কপি</button>
-  </div>
-
-  <p id="copyMessage" class="small" aria-live="polite"></p>
-  <p class="small">পেমেন্ট করার আগে মাধ্যম ও নম্বর যাচাই করুন।</p>
+<strong id="paymentTitle"></strong>
+<div style="display:flex;align-items:center;gap:10px;margin-top:10px;flex-wrap:wrap">
+<span id="paymentNumber" style="font-weight:bold;font-size:18px"></span>
+<button id="copyPaymentNumber" type="button">নম্বর কপি</button>
 </div>
-  
+<p id="copyMessage" class="small" aria-live="polite"></p>
+<p class="small">পেমেন্ট করার আগে মাধ্যম ও নম্বর যাচাই করুন।</p>
+</div>
+
 <label for="transactionId">Transaction ID (TrxID) *</label>
 <input id="transactionId" maxlength="100" placeholder="পেমেন্টের TrxID লিখুন">
-<div id="summary" class="notice" style="margin-top:12px">একটি প্যাকেজ নির্বাচন করুন।</div>
-<button id="orderBtn">অর্ডার জমা দিন</button>
+
+<div id="summary" class="notice" style="margin-top:12px">
+একটি প্যাকেজ নির্বাচন করুন।
+</div>
+
+<button id="orderBtn" type="button">অর্ডার জমা দিন</button>
 <p id="message" class="small" role="status"></p>
 </section>
+
 <section class="card">
-  <h2>🔐 Google Login</h2>
-  <button id="googleLoginBtn" type="button">
-    Google দিয়ে লগইন করুন
-  </button>
-  <p id="loginMessage" class="small"></p>
-  <button id="googleLogoutBtn" type="button" hidden>
-    লগআউট
-  </button>
+<h2>🔐 Google Login</h2>
+<button id="googleLoginBtn" type="button">Google দিয়ে লগইন করুন</button>
+<p id="loginMessage" class="small"></p>
+<button id="googleLogoutBtn" class="secondary" type="button" hidden>লগআউট</button>
 </section>
+
 <section class="card">
 <h2>📦 আমার অর্ডার</h2>
 <div id="orders"><p class="small">Firebase সংযোগ হচ্ছে...</p></div>
+</section>
+
+<section class="card" id="adminPanel" hidden>
+<h2>🛡️ Admin Panel</h2>
+<p class="small">এখানে সব অর্ডার দেখা এবং অর্ডারের স্ট্যাটাস পরিবর্তন করা যাবে।</p>
+<div id="adminMessage" class="small"></div>
+<div id="adminOrders"><p class="small">অর্ডার লোড হচ্ছে...</p></div>
 </section>
 
 <section class="card">
@@ -105,14 +122,25 @@ footer{text-align:center;padding:20px;color:#aaa;font-size:13px}
 </section>
 </main>
 
-<footer>Free Fire Top Up BD · পেমেন্ট যাচাই না হওয়া পর্যন্ত অর্ডার Pending থাকবে।</footer>
+<footer>
+Free Fire Top Up BD · পেমেন্ট যাচাই না হওয়া পর্যন্ত অর্ডার Pending থাকবে।
+</footer>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+
 import {
-  getFirestore, collection, addDoc, query, where,
-  onSnapshot, serverTimestamp
+  getFirestore,
+  collection,
+  addDoc,
+  query,
+  where,
+  onSnapshot,
+  serverTimestamp,
+  doc,
+  updateDoc
 } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+
 import {
   getAuth,
   GoogleAuthProvider,
@@ -121,25 +149,22 @@ import {
   onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
 
-/*
-  নিচের firebaseConfig-টি Firebase Console-এর Config
-  থেকে পাওয়া আসল মান দিয়ে প্রতিস্থাপন করুন।
-*/
+/* Firebase Configuration */
+const firebaseConfig = {
+  apiKey: "AIzaSyDfSOxgZCc7ruivgKxRRjaPtVZgQyYiqF0",
+  authDomain: "free-fire-top-up-bd-76bc9.firebaseapp.com",
+  projectId: "free-fire-top-up-bd-76bc9",
+  storageBucket: "free-fire-top-up-bd-76bc9.firebasestorage.app",
+  messagingSenderId: "70612759846",
+  appId: "1:70612759846:web:3d7a1f463889c45b5fbde7"
+};
 
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyDfSOxgZCc7ruivgKxRRjaPtVZgQyYiqF0",
-    authDomain: "free-fire-top-up-bd-76bc9.firebaseapp.com",
-    projectId: "free-fire-top-up-bd-76bc9",
-    storageBucket: "free-fire-top-up-bd-76bc9.firebasestorage.app",
-    messagingSenderId: "70612759846",
-    appId: "1:70612759846:web:3d7a1f463889c45b5fbde7"
-  };
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
+const ADMIN_EMAIL = "moktadir032@gmail.com";
 
-// উদাহরণমূলক দাম। প্রকাশের আগে নিজের সঠিক দাম বসান।
 const products = [
   {id:"d25",name:"25 Diamonds",price:25},
   {id:"d50",name:"50 Diamonds",price:40},
@@ -151,13 +176,23 @@ const products = [
   {id:"monthly",name:"Monthly Membership",price:800}
 ];
 
-const $ = id => document.getElementById(id);
-
 const paymentNumbers = {
   bKash: "01993140297",
   Nagad: "01993140297"
 };
 
+const $ = id => document.getElementById(id);
+
+let selected = null;
+let currentUser = null;
+let stopOrders = null;
+let stopAdminOrders = null;
+
+function message(text) {
+  $("message").textContent = text;
+}
+
+/* Payment Method */
 $("paymentMethod").addEventListener("change", () => {
   const method = $("paymentMethod").value;
   const details = $("paymentDetails");
@@ -178,6 +213,7 @@ $("paymentMethod").addEventListener("change", () => {
   details.hidden = false;
 });
 
+/* Copy Payment Number */
 $("copyPaymentNumber").addEventListener("click", async () => {
   const number = $("paymentNumber").textContent;
 
@@ -186,107 +222,211 @@ $("copyPaymentNumber").addEventListener("click", async () => {
     $("copyMessage").textContent = "নম্বর কপি হয়েছে!";
   } catch (error) {
     $("copyMessage").textContent =
-      "কপি করা যায়নি। নম্বরটি হাতে কপি করুন।";
+      "কপি করা যায়নি। নম্বরটি হাতে কপি করুন: " + number;
   }
 });
-  
-let selected = null;
-let currentUser = null;
-let stopOrders = null;
 
-function message(text){ $("message").textContent = text; }
-
-function renderPackages(){
+/* Render Packages */
+function renderPackages() {
   $("packages").replaceChildren();
-  products.forEach(p=>{
-    const b=document.createElement("button");
-    b.type="button";
-    b.className="pkg";
-    const name=document.createElement("strong");
-    name.textContent=p.name;
-    const price=document.createElement("span");
-    price.textContent="৳"+p.price;
-    b.append(name,price);
-    b.addEventListener("click",()=>{
-      selected=p;
-      document.querySelectorAll(".pkg").forEach(x=>x.classList.remove("selected"));
-      b.classList.add("selected");
-      $("summary").textContent=`নির্বাচিত: ${p.name} — ৳${p.price}`;
+
+  products.forEach(p => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "pkg";
+
+    const name = document.createElement("strong");
+    name.textContent = p.name;
+
+    const price = document.createElement("span");
+    price.textContent = "৳" + p.price;
+
+    button.append(name, price);
+
+    button.addEventListener("click", () => {
+      selected = p;
+
+      document.querySelectorAll(".pkg").forEach(el => {
+        el.classList.remove("selected");
+      });
+
+      button.classList.add("selected");
+      $("summary").textContent =
+        `নির্বাচিত: ${p.name} — ৳${p.price}`;
     });
-    $("packages").appendChild(b);
+
+    $("packages").appendChild(button);
   });
 }
 
-function showOrders(snapshot){
-  const box=$("orders");
+/* Customer Orders */
+function showOrders(snapshot) {
+  const box = $("orders");
   box.replaceChildren();
 
-  if(snapshot.empty){
-    const p=document.createElement("p");
-    p.className="small";
-    p.textContent="এখনও কোনো অর্ডার নেই।";
+  if (snapshot.empty) {
+    const p = document.createElement("p");
+    p.className = "small";
+    p.textContent = "এখনও কোনো অর্ডার নেই।";
     box.appendChild(p);
     return;
   }
 
-  const docs=[];
-  snapshot.forEach(d=>docs.push({id:d.id,...d.data()}));
-  docs.sort((a,b)=>{
-    const ta=a.createdAt?.toMillis?.()||0;
-    const tb=b.createdAt?.toMillis?.()||0;
-    return tb-ta;
+  const docs = [];
+  snapshot.forEach(d => docs.push({id:d.id, ...d.data()}));
+
+  docs.sort((a, b) => {
+    const ta = a.createdAt?.toMillis?.() || 0;
+    const tb = b.createdAt?.toMillis?.() || 0;
+    return tb - ta;
   });
 
-  docs.forEach(o=>{
-    const div=document.createElement("div");
-    div.className="order";
-    const title=document.createElement("strong");
-    title.textContent=`${o.packageName} — ৳${o.price}`;
-    const detail=document.createElement("p");
-    detail.className="small";
-    detail.textContent=`Order ID: ${o.id} | UID: ${o.uid} | ${o.paymentMethod} | TrxID: ${o.transactionId}`;
-    const status=document.createElement("p");
-    status.className="status";
-    status.textContent="স্ট্যাটাস: "+(o.status||"pending");
-    div.append(title,detail,status);
+  docs.forEach(o => {
+    const div = document.createElement("div");
+    div.className = "order";
+
+    const title = document.createElement("strong");
+    title.textContent = `${o.packageName} — ৳${o.price}`;
+
+    const detail = document.createElement("p");
+    detail.className = "small";
+    detail.textContent =
+      `Order ID: ${o.id} | UID: ${o.uid} | ${o.paymentMethod} | TrxID: ${o.transactionId}`;
+
+    const status = document.createElement("p");
+    status.className = "status";
+    status.textContent = "স্ট্যাটাস: " + (o.status || "pending");
+
+    div.append(title, detail, status);
     box.appendChild(div);
   });
 }
 
-async function start(){
-  if(firebaseConfig.apiKey==="PASTE_YOUR_REAL_API_KEY_HERE"){
-    message("প্রথমে Firebase Config-এর আসল apiKey বসান।");
-    $("orders").textContent="Firebase Config সম্পূর্ণ করা হয়নি।";
+/* Admin Orders */
+function showAdminOrders(snapshot) {
+  const box = $("adminOrders");
+  box.replaceChildren();
+
+  if (snapshot.empty) {
+    const p = document.createElement("p");
+    p.className = "small";
+    p.textContent = "এখনও কোনো অর্ডার নেই।";
+    box.appendChild(p);
     return;
   }
 
-  try{
-    const app=initializeApp(firebaseConfig);
-    const db=getFirestore(app);
-    const auth=getAuth(app);
+  const docs = [];
+  snapshot.forEach(d => docs.push({id:d.id, ...d.data()}));
 
-    $("googleLoginBtn").addEventListener("click", async () => {
+  docs.sort((a, b) => {
+    const ta = a.createdAt?.toMillis?.() || 0;
+    const tb = b.createdAt?.toMillis?.() || 0;
+    return tb - ta;
+  });
+
+  docs.forEach(order => {
+    const card = document.createElement("div");
+    card.className = "admin-order";
+
+    const title = document.createElement("strong");
+    title.textContent = `${order.packageName || "প্যাকেজ"} — ৳${order.price}`;
+
+    const detail = document.createElement("p");
+    detail.className = "small";
+    detail.textContent =
+      `Order ID: ${order.id} | UID: ${order.uid} | Player: ${order.playerName || "নাম নেই"} | Payment: ${order.paymentMethod} | TrxID: ${order.transactionId}`;
+
+    const currentStatus = document.createElement("p");
+    currentStatus.className = "status";
+    currentStatus.textContent = "বর্তমান স্ট্যাটাস: " + (order.status || "pending");
+
+    const select = document.createElement("select");
+
+    const statuses = [
+      {value:"pending", label:"Pending"},
+      {value:"processing", label:"Processing"},
+      {value:"completed", label:"Completed"},
+      {value:"rejected", label:"Rejected"}
+    ];
+
+    statuses.forEach(item => {
+      const option = document.createElement("option");
+      option.value = item.value;
+      option.textContent = item.label;
+      select.appendChild(option);
+    });
+
+    select.value = statuses.some(s => s.value === order.status)
+      ? order.status
+      : "pending";
+
+    const updateButton = document.createElement("button");
+    updateButton.type = "button";
+    updateButton.textContent = "স্ট্যাটাস আপডেট করুন";
+
+    updateButton.addEventListener("click", async () => {
+      if (
+        !currentUser ||
+        currentUser.email !== ADMIN_EMAIL ||
+        !currentUser.emailVerified
+      ) {
+        $("adminMessage").textContent =
+          "Admin হিসেবে যাচাই করা যায়নি। আবার লগইন করুন।";
+        return;
+      }
+
+      updateButton.disabled = true;
+      $("adminMessage").textContent = "স্ট্যাটাস আপডেট হচ্ছে...";
+
+      try {
+        await updateDoc(doc(db, "orders", order.id), {
+          status: select.value
+        });
+
+        $("adminMessage").textContent =
+          `অর্ডার ${order.id}-এর স্ট্যাটাস আপডেট হয়েছে।`;
+      } catch (error) {
+        console.error(error);
+        $("adminMessage").textContent =
+          "আপডেট হয়নি। Firestore Rules প্রকাশ করা আছে কি না যাচাই করুন।";
+      } finally {
+        updateButton.disabled = false;
+      }
+    });
+
+    card.append(title, detail, currentStatus, select, updateButton);
+    box.appendChild(card);
+  });
+}
+
+/* Google Login */
+$("googleLoginBtn").addEventListener("click", async () => {
   try {
     await signInWithPopup(auth, new GoogleAuthProvider());
-  } catch (e) {
-    console.error(e);
-    message("Google Login হয়নি। আবার চেষ্টা করুন।");
+  } catch (error) {
+    console.error(error);
+    $("loginMessage").textContent =
+      "Google Login হয়নি। Authorized domains ও Google Login সেটিংস যাচাই করুন।";
   }
 });
 
+/* Logout */
 $("googleLogoutBtn").addEventListener("click", async () => {
   try {
     await signOut(auth);
-  } catch (e) {
-    console.error(e);
-    message("লগআউট হয়নি। আবার চেষ্টা করুন।");
+  } catch (error) {
+    console.error(error);
+    $("loginMessage").textContent = "লগআউট হয়নি। আবার চেষ্টা করুন।";
   }
 });
 
+/* Authentication State */
 onAuthStateChanged(auth, user => {
   currentUser = user && !user.isAnonymous ? user : null;
+
   $("googleLoginBtn").hidden = !!currentUser;
   $("googleLogoutBtn").hidden = !currentUser;
+
   $("loginMessage").textContent = currentUser
     ? `${currentUser.displayName || "Google ব্যবহারকারী"} — ${currentUser.email || ""}`
     : "অর্ডার করতে Google দিয়ে লগইন করুন।";
@@ -295,92 +435,151 @@ onAuthStateChanged(auth, user => {
     stopOrders();
     stopOrders = null;
   }
+
+  if (stopAdminOrders) {
+    stopAdminOrders();
+    stopAdminOrders = null;
+  }
+
   $("orders").replaceChildren();
+  $("adminOrders").replaceChildren();
+  $("adminPanel").hidden = true;
+  $("adminMessage").textContent = "";
 
   if (!currentUser) {
+    $("orders").textContent = "অর্ডার দেখতে ও জমা দিতে Google দিয়ে লগইন করুন।";
     message("অর্ডার করতে Google দিয়ে লগইন করুন।");
     return;
   }
 
-      currentUser=user;
-      if(stopOrders) stopOrders();
+  /* Customer's Own Orders */
+  const customerQuery = query(
+    collection(db, "orders"),
+    where("ownerUid", "==", currentUser.uid)
+  );
 
-      const q=query(
-        collection(db,"orders"),
-        where("ownerUid","==",user.uid)
-      );
+  stopOrders = onSnapshot(
+    customerQuery,
+    showOrders,
+    error => {
+      console.error(error);
+      $("orders").textContent =
+        "অর্ডার লোড হয়নি। Firestore Rules যাচাই করুন।";
+    }
+  );
 
-      stopOrders=onSnapshot(q,showOrders,error=>{
+  /* Admin Access */
+  const isAdmin =
+    currentUser.email === ADMIN_EMAIL &&
+    currentUser.emailVerified === true;
+
+  if (isAdmin) {
+    $("adminPanel").hidden = false;
+    $("adminMessage").textContent = "Admin হিসেবে লগইন করা হয়েছে।";
+
+    stopAdminOrders = onSnapshot(
+      collection(db, "orders"),
+      showAdminOrders,
+      error => {
         console.error(error);
-        $("orders").textContent="অর্ডার লোড হয়নি। Firestore Rules যাচাই করুন।";
-      });
-    });
-
-    $("orderBtn").addEventListener("click",async()=>{
-      if(!currentUser){
-        message("Firebase সংযোগের জন্য অপেক্ষা করুন।");
-        return;
+        $("adminOrders").textContent =
+          "সব অর্ডার লোড হয়নি। Firestore Rules যাচাই করুন।";
       }
-
-      const uid=$("uid").value.trim();
-      const playerName=$("playerName").value.trim();
-      const paymentMethod=$("paymentMethod").value;
-      const transactionId=$("transactionId").value.trim();
-
-      if(!/^[0-9]{5,24}$/.test(uid)){
-        message("সঠিক Player UID লিখুন।");
-        return;
-      }
-      if(!selected){
-        message("একটি প্যাকেজ নির্বাচন করুন।");
-        return;
-      }
-      if(transactionId.length<4){
-        message("সঠিক Transaction ID লিখুন।");
-        return;
-      }
-
-      const btn=$("orderBtn");
-      btn.disabled=true;
-      message("অর্ডার জমা হচ্ছে...");
-
-      try{
-        const ref=await addDoc(collection(db,"orders"),{
-          ownerUid:currentUser.uid,
-          uid,
-          playerName,
-          region:"Bangladesh",
-          packageId:selected.id,
-          packageName:selected.name,
-          price:selected.price,
-          paymentMethod,
-          transactionId,
-          status:"pending",
-          createdAt:serverTimestamp()
-        });
-
-        message(`অর্ডার জমা হয়েছে। Order ID: ${ref.id}। পেমেন্ট যাচাইয়ের অপেক্ষায় আছে।`);
-        $("uid").value="";
-        $("playerName").value="";
-        $("transactionId").value="";
-        selected=null;
-        document.querySelectorAll(".pkg").forEach(x=>x.classList.remove("selected"));
-        $("summary").textContent="একটি প্যাকেজ নির্বাচন করুন।";
-      }catch(e){
-        console.error(e);
-        message("অর্ডার জমা হয়নি। Config, Authentication ও Firestore Rules যাচাই করুন।");
-      }finally{
-        btn.disabled=false;
-      }
-    });
-  }catch(e){
-    console.error(e);
-    message("Firebase চালু হয়নি। Config-এর সব মান সঠিক কি না যাচাই করুন।");
+    );
+  } else {
+    $("adminPanel").hidden = true;
   }
-}
+
+  message("আপনি লগইন করেছেন। এখন অর্ডার করতে পারবেন।");
+});
+
+/* Submit Order */
+$("orderBtn").addEventListener("click", async () => {
+  if (!currentUser) {
+    message("প্রথমে Google দিয়ে লগইন করুন।");
+    return;
+  }
+
+  const uid = $("uid").value.trim();
+  const playerName = $("playerName").value.trim();
+  const paymentMethod = $("paymentMethod").value;
+  const transactionId = $("transactionId").value.trim();
+
+  if (!/^[0-9]{5,24}$/.test(uid)) {
+    message("সঠিক Player UID লিখুন (৫–২৪টি সংখ্যা)।");
+    return;
+  }
+
+  if (playerName.length > 40) {
+    message("Player Name সর্বোচ্চ ৪০ অক্ষরের হতে পারবে।");
+    return;
+  }
+
+  if (!selected) {
+    message("একটি প্যাকেজ নির্বাচন করুন।");
+    return;
+  }
+
+  if (!paymentMethod || !paymentNumbers[paymentMethod]) {
+    message("বিকাশ অথবা নগদ পেমেন্ট পদ্ধতি নির্বাচন করুন।");
+    return;
+  }
+
+  if (transactionId.length < 4 || transactionId.length > 100) {
+    message("সঠিক Transaction ID লিখুন।");
+    return;
+  }
+
+  const btn = $("orderBtn");
+  btn.disabled = true;
+  message("অর্ডার জমা হচ্ছে...");
+
+  try {
+    const ref = await addDoc(collection(db, "orders"), {
+      ownerUid: currentUser.uid,
+      uid: uid,
+      playerName: playerName,
+      region: "Bangladesh",
+      packageId: selected.id,
+      packageName: selected.name,
+      price: selected.price,
+      paymentMethod: paymentMethod,
+      transactionId: transactionId,
+      status: "pending",
+      createdAt: serverTimestamp()
+    });
+
+    message(
+      `অর্ডার জমা হয়েছে। Order ID: ${ref.id}। পেমেন্ট যাচাইয়ের অপেক্ষায় আছে।`
+    );
+
+    $("uid").value = "";
+    $("playerName").value = "";
+    $("transactionId").value = "";
+    $("paymentMethod").value = "";
+    $("paymentDetails").hidden = true;
+    $("paymentNumber").textContent = "";
+    $("paymentTitle").textContent = "";
+    $("copyMessage").textContent = "";
+
+    selected = null;
+
+    document.querySelectorAll(".pkg").forEach(el => {
+      el.classList.remove("selected");
+    });
+
+    $("summary").textContent = "একটি প্যাকেজ নির্বাচন করুন।";
+  } catch (error) {
+    console.error(error);
+    message(
+      "অর্ডার জমা হয়নি। Firebase Authentication ও Firestore Rules যাচাই করুন।"
+    );
+  } finally {
+    btn.disabled = false;
+  }
+});
 
 renderPackages();
-start();
 </script>
 </body>
 </html>
