@@ -217,15 +217,42 @@ async function start(){
     const db=getFirestore(app);
     const auth=getAuth(app);
 
-    onAuthStateChanged(auth,async user=>{
-      if(!user){
-        try{await signInAnonymously(auth);}
-        catch(e){
-          console.error(e);
-          message("Anonymous Authentication চালু আছে কি না যাচাই করুন।");
-        }
-        return;
-      }
+    $("googleLoginBtn").addEventListener("click", async () => {
+  try {
+    await signInWithPopup(auth, new GoogleAuthProvider());
+  } catch (e) {
+    console.error(e);
+    message("Google Login হয়নি। আবার চেষ্টা করুন।");
+  }
+});
+
+$("googleLogoutBtn").addEventListener("click", async () => {
+  try {
+    await signOut(auth);
+  } catch (e) {
+    console.error(e);
+    message("লগআউট হয়নি। আবার চেষ্টা করুন।");
+  }
+});
+
+onAuthStateChanged(auth, user => {
+  currentUser = user && !user.isAnonymous ? user : null;
+  $("googleLoginBtn").hidden = !!currentUser;
+  $("googleLogoutBtn").hidden = !currentUser;
+  $("loginMessage").textContent = currentUser
+    ? `${currentUser.displayName || "Google ব্যবহারকারী"} — ${currentUser.email || ""}`
+    : "অর্ডার করতে Google দিয়ে লগইন করুন।";
+
+  if (stopOrders) {
+    stopOrders();
+    stopOrders = null;
+  }
+  $("orders").replaceChildren();
+
+  if (!currentUser) {
+    message("অর্ডার করতে Google দিয়ে লগইন করুন।");
+    return;
+  }
 
       currentUser=user;
       if(stopOrders) stopOrders();
