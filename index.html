@@ -2,154 +2,308 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#10111b">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free Fire Top Up BD</title>
+<meta name="theme-color" content="#080d1b">
 
 <style>
+:root{
+  --bg:#070b16;
+  --panel:#101a2d;
+  --blue:#16baff;
+  --red:#ff3155;
+  --gold:#ffd166;
+  --text:#f3f7ff;
+  --muted:#9baac3;
+}
 *{box-sizing:border-box}
-body{margin:0;background:#10111b;color:#f5f5fa;font-family:Arial,sans-serif}
-header{text-align:center;padding:25px 12px;background:linear-gradient(135deg,#351052,#111827)}
-header h1{color:#ffbd45;margin:0;font-size:27px}
-header p{color:#ddd}
-main{max-width:700px;margin:auto;padding:14px}
-.card{background:#1b1d2b;border:1px solid #303247;border-radius:14px;padding:16px;margin-bottom:15px}
-h2{font-size:19px;color:#ffbd45;margin-top:0}
-label{display:block;margin:13px 0 6px;font-size:14px}
-input,select{width:100%;padding:12px;border-radius:9px;border:1px solid #454960;background:#111320;color:white;font-size:16px}
-.packages{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
-.pkg{background:#121421;color:white;border:1px solid #454960;border-radius:10px;padding:13px 5px;cursor:pointer}
-.pkg strong,.pkg span{display:block}
-.pkg strong{color:#ffbd45;margin-bottom:7px}
-.pkg.selected{border:2px solid #ffbd45;background:#302416}
-button,.button{width:100%;padding:13px;border:0;border-radius:10px;background:#ffbd45;color:#211600;font-size:16px;font-weight:bold;cursor:pointer;margin-top:12px;text-align:center;text-decoration:none;display:block}
-button:disabled{opacity:.55;cursor:not-allowed}
-.secondary{background:#303349;color:white}
-.notice{background:#292236;border-radius:9px;padding:12px;line-height:1.6}
-.small{font-size:13px;color:#b8bbcb;line-height:1.6}
-.order{border-top:1px solid #393b50;padding:12px 0;overflow-wrap:anywhere}
-.status{color:#ffcf72;font-weight:bold}
-footer{text-align:center;padding:20px;color:#aaa;font-size:13px}
-[hidden]{display:none!important}
-.admin-order{background:#121421;border:1px solid #393b50;border-radius:10px;padding:12px;margin:12px 0}
-.admin-order select{margin-top:8px}
-@media(min-width:520px){.packages{grid-template-columns:repeat(3,minmax(0,1fr))}}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:
+  radial-gradient(circle at 10% 5%,#10294a 0,transparent 32%),
+  radial-gradient(circle at 95% 30%,#30101f 0,transparent 30%),var(--bg);
+  color:var(--text);font-family:Arial,"Noto Sans Bengali",sans-serif;
+}
+button,input,select{font:inherit}
+button{cursor:pointer}
+button:disabled{opacity:.5;cursor:not-allowed}
+.hidden{display:none!important}
+.container{width:min(1080px,92%);margin:auto}
+header{
+  position:sticky;top:0;z-index:10;
+  background:#080d16eF;border-bottom:1px solid #23314a;
+  backdrop-filter:blur(14px);
+}
+.nav{min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.brand{font-size:17px;font-weight:900;color:white;text-decoration:none}
+.brand span{color:var(--blue)}
+.nav-actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn{
+  border:0;border-radius:10px;padding:11px 14px;font-weight:800;
+  color:white;background:linear-gradient(100deg,#078ed8,#15c4ff);
+  box-shadow:0 0 18px #00aaff20;transition:.2s;
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.12)}
+.btn-red{background:linear-gradient(100deg,#d91e45,#ff5265)}
+.btn-dark{background:#17243a;border:1px solid #30425f}
+.btn-gold{background:linear-gradient(100deg,#e7a72b,#ffdb70);color:#241900}
+.btn-small{padding:8px 10px;font-size:12px}
+.hero{
+  margin:24px auto 20px;position:relative;overflow:hidden;
+  border:1px solid #214e72;border-radius:22px;padding:30px 22px;
+  background:linear-gradient(115deg,#0c2845,#10192d 60%,#34101f);
+  box-shadow:0 0 35px #008dff12;
+}
+.hero:before,.hero:after{
+  content:"";position:absolute;border-radius:50%;filter:blur(2px);
+  animation:float 5s ease-in-out infinite;
+}
+.hero:before{width:140px;height:140px;right:4%;top:5%;background:#00bfff17}
+.hero:after{width:85px;height:85px;right:25%;bottom:-20px;background:#ff31551c;animation-delay:-2s}
+.hero-content{position:relative;z-index:1;max-width:660px}
+.eyebrow{color:var(--blue);font-size:12px;font-weight:900;letter-spacing:2px}
+.hero h1{font-size:clamp(27px,5vw,46px);line-height:1.13;margin:12px 0}
+.hero h1 span{color:var(--gold);text-shadow:0 0 22px #ffcc4438}
+.hero p{color:#bfcee2;line-height:1.7;margin:0 0 18px}
+.hero-diamond{font-size:48px;display:inline-block;animation:diamondGlow 2s infinite alternate}
+@keyframes float{50%{transform:translateY(-13px) translateX(-7px)}}
+@keyframes diamondGlow{from{filter:drop-shadow(0 0 5px #00baff)}to{filter:drop-shadow(0 0 20px #ff3155)}}
+@keyframes appear{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+@keyframes introOut{to{opacity:0;visibility:hidden}}
+.intro{
+  position:fixed;inset:0;z-index:1000;background:#050914;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  animation:introOut .7s ease 1.6s forwards;
+}
+.intro-inner{animation:appear .7s ease}
+.intro-logo{font-size:clamp(27px,7vw,48px);font-weight:1000;letter-spacing:2px;
+  color:white;text-shadow:0 0 18px #00baff,0 0 35px #ff3155}
+.intro-gem{font-size:65px;display:block;margin-bottom:16px;animation:diamondGlow .8s infinite alternate}
+.intro-line{height:3px;width:190px;margin:22px auto;background:linear-gradient(90deg,#00baff,#ff3155);border-radius:9px}
+.section-title{font-size:22px;margin:28px 0 8px}
+.subtext{color:var(--muted);font-size:13px;line-height:1.7}
+.category-grid,.package-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin-top:17px}
+.category-card,.package-card,.panel{
+  background:linear-gradient(145deg,#121e33,#0d1424);
+  border:1px solid #243752;border-radius:16px;padding:18px;
+}
+.category-card{cursor:pointer;transition:.25s;position:relative;overflow:hidden;min-height:145px}
+.category-card:hover{transform:translateY(-4px);border-color:var(--blue);box-shadow:0 0 25px #00aaff18}
+.category-icon{font-size:34px;margin-bottom:10px}
+.category-card h3{margin:0 0 7px;font-size:16px}
+.category-card p{margin:0;color:var(--muted);font-size:12px;line-height:1.6}
+.package-card{cursor:pointer;transition:.2s}
+.package-card:hover{border-color:#1bbdff}
+.package-card.selected{border:2px solid var(--blue);background:linear-gradient(145deg,#123451,#111b2d);box-shadow:0 0 18px #00baff20}
+.package-icon{font-size:28px}
+.package-name{font-weight:900;margin:10px 0}
+.price{color:var(--gold);font-size:22px;font-weight:1000}
+.tag{display:inline-block;margin-top:9px;padding:5px 8px;border-radius:7px;background:#173653;color:#83dcff;font-size:11px}
+.section{margin:28px 0}
+.panel{padding:20px;margin-top:15px}
+.panel h2,.panel h3{margin-top:0}
+.field{margin:13px 0}
+.field label{display:block;font-size:13px;font-weight:800;margin-bottom:8px}
+.field input,.field select{
+  width:100%;border-radius:10px;border:1px solid #30425f;
+  background:#080f1d;color:white;padding:13px;outline:none;
+}
+.field input:focus,.field select:focus{border-color:var(--blue);box-shadow:0 0 0 3px #00baff15}
+.payment-choice{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.payment-option{
+  padding:14px;border:1px solid #30425f;border-radius:12px;
+  background:#0a1323;color:white;font-weight:900;
+}
+.payment-option.active{border-color:var(--blue);background:#12314b;box-shadow:0 0 15px #00baff18}
+.notice{padding:12px;border-radius:10px;background:#14243a;color:#c9d8ec;font-size:13px;line-height:1.7}
+.status{display:inline-block;padding:5px 9px;border-radius:8px;font-size:11px;font-weight:900;background:#29364c}
+.status-pending{color:#ffd166}
+.status-processing{color:#75d7ff}
+.status-completed{color:#69f0ae}
+.status-rejected{color:#ff7b8f}
+.order-card{border:1px solid #263752;border-radius:12px;padding:14px;margin:10px 0;background:#0a1220;overflow-wrap:anywhere}
+.order-card p{font-size:13px;line-height:1.7;margin:5px 0;color:#c2d0e3}
+.order-card strong{color:white}
+.admin-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.admin-row select{flex:1;min-width:130px}
+footer{text-align:center;padding:28px 12px;color:#7f91ac;font-size:12px;line-height:1.8}
+hr{border:0;border-top:1px solid #24334b;margin:20px 0}
+.empty{text-align:center;color:var(--muted);padding:20px}
+#message{position:fixed;z-index:1001;bottom:20px;left:50%;transform:translateX(-50%);
+  background:#172b42;border:1px solid #315270;color:white;border-radius:12px;
+  padding:12px 18px;box-shadow:0 10px 35px #0007;max-width:90%;text-align:center}
+@media(max-width:700px){
+  .category-grid,.package-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .category-card,.package-card{padding:14px}
+  .hero{padding:24px 17px}
+  .nav{align-items:flex-start;padding:13px 0;flex-direction:column}
+  .nav-actions{width:100%}
+  .nav-actions .btn{flex:1}
+}
+@media(max-width:390px){
+  .category-grid,.package-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 
 <body>
+
+<div class="intro" id="intro">
+  <div class="intro-inner">
+    <span class="intro-gem">💎</span>
+    <div class="intro-logo">FREE FIRE<br>TOP UP BD</div>
+    <div class="intro-line"></div>
+    <div style="color:#9eb4d1;font-size:12px;letter-spacing:3px">PREMIUM GAMING STORE</div>
+  </div>
+</div>
+
 <header>
-<h1>🔥 Free Fire Top Up BD</h1>
-<p>সহজে অর্ডার করুন, পেমেন্ট যাচাইয়ের পর ডেলিভারি</p>
+  <div class="container nav">
+    <a class="brand" href="#">🔥 FREE FIRE <span>TOP UP BD</span></a>
+    <div class="nav-actions">
+      <button class="btn btn-small" id="loginBtn">Google Login</button>
+      <button class="btn btn-dark btn-small hidden" id="myOrdersBtn">My Orders</button>
+      <button class="btn btn-red btn-small hidden" id="adminBtn">Admin Panel</button>
+      <button class="btn btn-dark btn-small hidden" id="logoutBtn">Logout</button>
+    </div>
+  </div>
 </header>
 
-<main>
-<section class="card">
-<h2>🎮 Player Information</h2>
+<main class="container">
+  <section class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">FAST • SECURE • RELIABLE</div>
+      <h1>YOUR GAME.<br>YOUR <span>DIAMONDS.</span></h1>
+      <p>Free Fire Diamonds ও Membership কিনুন সহজেই। প্যাকেজ বেছে নিন, Player UID দিন এবং bKash/Nagad দিয়ে পেমেন্ট সম্পন্ন করুন।</p>
+      <span class="hero-diamond">💎</span>
+      <button class="btn btn-gold" onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'})">প্যাকেজ দেখুন ↓</button>
+    </div>
+  </section>
 
-<label for="uid">Free Fire Player UID *</label>
-<input id="uid" inputmode="numeric" maxlength="24" placeholder="Player UID লিখুন">
+  <section class="section" id="categories">
+    <h2 class="section-title">🎮 Top Up Categories</h2>
+    <p class="subtext">আপনার প্রয়োজনীয় ক্যাটাগরি নির্বাচন করুন।</p>
 
-<label for="playerName">Player Name (ঐচ্ছিক)</label>
-<input id="playerName" maxlength="40" placeholder="গেমের নাম">
+    <div class="category-grid">
+      <div class="category-card" onclick="openCategory('diamonds')">
+        <div class="category-icon">💎</div>
+        <h3>BD Top Up UID</h3>
+        <p>বাংলাদেশ সার্ভারের Diamond Top Up প্যাকেজ</p>
+        <span class="tag">DIAMONDS</span>
+      </div>
+      <div class="category-card" onclick="openCategory('membership')">
+        <div class="category-icon">👑</div>
+        <h3>Weekly / Monthly</h3>
+        <p>Weekly এবং Monthly Membership প্যাকেজ</p>
+        <span class="tag">MEMBERSHIP</span>
+      </div>
+      <div class="category-card" onclick="openCategory('local')">
+        <div class="category-icon">⚡</div>
+        <h3>Local Diamond Offer</h3>
+        <p>সহজে পছন্দের Diamond প্যাকেজ বেছে নিন</p>
+        <span class="tag">LOCAL OFFER</span>
+      </div>
+    </div>
+  </section>
 
-<label for="region">Region</label>
-<select id="region">
-<option value="Bangladesh">Bangladesh</option>
-</select>
-</section>
+  <section class="section hidden" id="packagesSection">
+    <button class="btn btn-dark btn-small" onclick="backToCategories()">← সব ক্যাটাগরি</button>
+    <h2 class="section-title" id="packagesTitle">প্যাকেজ নির্বাচন করুন</h2>
+    <p class="subtext">একটি প্যাকেজে চাপ দিন। নির্বাচিত প্যাকেজটি নিচে দেখানো হবে।</p>
+    <div class="package-grid" id="packageGrid"></div>
+  </section>
 
-<section class="card">
-<h2>💎 Diamond ও Membership</h2>
-<div class="packages" id="packages"></div>
-<p class="small">প্যাকেজ ও দাম নিজের দোকানের প্রকৃত মূল্য অনুযায়ী পরিবর্তন করুন।</p>
-</section>
+  <section class="section hidden" id="orderSection">
+    <h2 class="section-title">📝 Player Information</h2>
+    <div class="panel">
+      <div class="notice" id="selectedPackageText">প্রথমে একটি প্যাকেজ নির্বাচন করুন।</div>
+      <div class="field">
+        <label for="playerUid">Free Fire Player UID *</label>
+        <input id="playerUid" inputmode="numeric" maxlength="24" placeholder="আপনার Player UID লিখুন">
+      </div>
+      <div class="field">
+        <label for="playerName">Player Name *</label>
+        <input id="playerName" maxlength="40" placeholder="আপনার গেমের নাম লিখুন">
+      </div>
+      <div class="field">
+        <label for="region">Region</label>
+        <input id="region" value="Bangladesh" readonly>
+      </div>
+      <button class="btn" style="width:100%" id="buyNowBtn">Buy Now →</button>
+    </div>
+  </section>
 
-<section class="card">
-<h2>💳 পেমেন্ট</h2>
+  <section class="section hidden" id="paymentSection">
+    <h2 class="section-title">💳 Payment</h2>
+    <div class="panel">
+      <div class="notice" id="paymentSummary"></div>
+      <h3 style="margin-top:20px">পেমেন্ট মাধ্যম নির্বাচন করুন</h3>
+      <div class="payment-choice">
+        <button class="payment-option" id="bkashBtn" onclick="choosePayment('bKash')">🩷 bKash</button>
+        <button class="payment-option" id="nagadBtn" onclick="choosePayment('Nagad')">🟠 Nagad</button>
+      </div>
 
-<label for="paymentMethod">পেমেন্ট পদ্ধতি *</label>
-<select id="paymentMethod" required>
-<option value="">পেমেন্ট মাধ্যম নির্বাচন করুন</option>
-<option value="bKash">বিকাশ</option>
-<option value="Nagad">নগদ</option>
-</select>
+      <div id="paymentDetails" class="hidden">
+        <div class="field">
+          <label>পেমেন্ট নম্বর</label>
+          <div style="display:flex;gap:8px">
+            <input id="paymentNumber" value="01993140297" readonly>
+            <button class="btn btn-dark" onclick="copyPaymentNumber()">Copy</button>
+          </div>
+        </div>
+        <div class="notice">
+          ১. উপরের নম্বরে নির্ধারিত টাকা Send Money করুন।<br>
+          ২. পেমেন্টের Transaction ID (TrxID) নিচে লিখুন।<br>
+          ৩. Submit Order চাপুন। পেমেন্ট যাচাইয়ের পর অর্ডারের স্ট্যাটাস আপডেট হবে।
+        </div>
+        <div class="field">
+          <label for="transactionId">Transaction ID (TrxID) *</label>
+          <input id="transactionId" maxlength="100" placeholder="আপনার TrxID লিখুন">
+        </div>
+        <button class="btn btn-gold" style="width:100%" id="submitOrderBtn">Submit Order</button>
+      </div>
+    </div>
+  </section>
 
-<div id="paymentDetails" class="notice" hidden>
-<strong id="paymentTitle"></strong>
-<div style="display:flex;align-items:center;gap:10px;margin-top:10px;flex-wrap:wrap">
-<span id="paymentNumber" style="font-weight:bold;font-size:18px"></span>
-<button id="copyPaymentNumber" type="button">নম্বর কপি</button>
-</div>
-<p id="copyMessage" class="small" aria-live="polite"></p>
-<p class="small">পেমেন্ট করার আগে মাধ্যম ও নম্বর যাচাই করুন।</p>
-</div>
+  <section class="section hidden" id="myOrdersSection">
+    <h2 class="section-title">📦 My Orders</h2>
+    <div class="panel">
+      <button class="btn btn-dark btn-small" onclick="loadMyOrders()">↻ Refresh Orders</button>
+      <div id="myOrdersList"><div class="empty">অর্ডার দেখতে My Orders চাপুন।</div></div>
+    </div>
+  </section>
 
-<label for="transactionId">Transaction ID (TrxID) *</label>
-<input id="transactionId" maxlength="100" placeholder="পেমেন্টের TrxID লিখুন">
-
-<div id="summary" class="notice" style="margin-top:12px">
-একটি প্যাকেজ নির্বাচন করুন।
-</div>
-
-<button id="orderBtn" type="button">অর্ডার জমা দিন</button>
-<p id="message" class="small" role="status"></p>
-</section>
-
-<section class="card">
-<h2>🔐 Google Login</h2>
-<button id="googleLoginBtn" type="button">Google দিয়ে লগইন করুন</button>
-<p id="loginMessage" class="small"></p>
-<button id="googleLogoutBtn" class="secondary" type="button" hidden>লগআউট</button>
-</section>
-
-<section class="card">
-<h2>📦 আমার অর্ডার</h2>
-<div id="orders"><p class="small">Firebase সংযোগ হচ্ছে...</p></div>
-</section>
-
-<section class="card" id="adminPanel" hidden>
-<h2>🛡️ Admin Panel</h2>
-<p class="small">এখানে সব অর্ডার দেখা এবং অর্ডারের স্ট্যাটাস পরিবর্তন করা যাবে।</p>
-<div id="adminMessage" class="small"></div>
-<div id="adminOrders"><p class="small">অর্ডার লোড হচ্ছে...</p></div>
-</section>
-
-<section class="card">
-<h2>📞 কাস্টমার সাপোর্ট</h2>
-<p class="small">অর্ডার সম্পর্কে সাহায্য পেতে WhatsApp-এ যোগাযোগ করুন।</p>
-<a class="button" href="https://wa.me/8801930331034" target="_blank" rel="noopener">WhatsApp Support</a>
-</section>
+  <section class="section hidden" id="adminSection">
+    <h2 class="section-title">🛡️ Admin Panel</h2>
+    <div class="panel">
+      <p class="subtext">এখানে আসা অর্ডার যাচাই করে স্ট্যাটাস পরিবর্তন করতে পারবেন।</p>
+      <button class="btn btn-dark btn-small" onclick="loadAdminOrders()">↻ Refresh All Orders</button>
+      <div id="adminOrdersList"><div class="empty">অর্ডার লোড হচ্ছে...</div></div>
+    </div>
+  </section>
 </main>
 
 <footer>
-Free Fire Top Up BD · পেমেন্ট যাচাই না হওয়া পর্যন্ত অর্ডার Pending থাকবে।
+  <div>🔥 Free Fire Top Up BD</div>
+  <div>Secure Order System • bKash / Nagad</div>
+  <div style="margin-top:12px">
+    <a href="https://wa.me/8801930331034" target="_blank" rel="noopener" style="color:#54d9a4">WhatsApp Support</a>
+  </div>
 </footer>
 
+<div id="message" class="hidden" role="status"></div>
+
 <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
-  getFirestore,
-  collection,
-  addDoc,
-  query,
-  where,
-  onSnapshot,
-  serverTimestamp,
-  doc,
-  updateDoc
-} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
-
+  getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import {
-  getAuth,
-  GoogleAuthProvider,
-  signInWithPopup,
-  signOut,
-  onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+  getFirestore, collection, addDoc, getDocs, query, where, orderBy,
+  serverTimestamp, doc, updateDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-/* Firebase Configuration */
+/* Firebase configuration */
 const firebaseConfig = {
   apiKey: "AIzaSyDfSOxgZCc7ruivgKxRRjaPtVZgQyYiqF0",
   authDomain: "free-fire-top-up-bd-76bc9.firebaseapp.com",
@@ -159,427 +313,452 @@ const firebaseConfig = {
   appId: "1:70612759846:web:3d7a1f463889c45b5fbde7"
 };
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const auth = getAuth(app);
-
 const ADMIN_EMAIL = "moktadir032@gmail.com";
+const PAYMENT_NUMBER = "01993140297";
 
-const products = [
-  {id:"d25",name:"25 Diamonds",price:25},
-  {id:"d50",name:"50 Diamonds",price:40},
-  {id:"d115",name:"115 Diamonds",price:80},
-  {id:"d240",name:"240 Diamonds",price:160},
-  {id:"d355",name:"355 Diamonds",price:240},
-  {id:"d610",name:"610 Diamonds",price:400},
-  {id:"weekly",name:"Weekly Membership",price:160},
-  {id:"monthly",name:"Monthly Membership",price:800}
-];
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const provider = new GoogleAuthProvider();
 
-const paymentNumbers = {
-  bKash: "01993140297",
-  Nagad: "01993140297"
+const products = {
+  diamonds: [
+    {id:"diamond25",name:"25 Diamonds",price:25,icon:"💎"},
+    {id:"diamond50",name:"50 Diamonds",price:40,icon:"💎"},
+    {id:"diamond115",name:"115 Diamonds",price:80,icon:"💎"},
+    {id:"diamond240",name:"240 Diamonds",price:160,icon:"💎"},
+    {id:"diamond355",name:"355 Diamonds",price:240,icon:"💎"},
+    {id:"diamond610",name:"610 Diamonds",price:400,icon:"💎"}
+  ],
+  membership: [
+    {id:"weekly",name:"Weekly Membership",price:160,icon:"👑"},
+    {id:"monthly",name:"Monthly Membership",price:800,icon:"🏆"}
+  ],
+  local: [
+    {id:"local25",name:"25 Diamonds • Local",price:25,icon:"⚡"},
+    {id:"local50",name:"50 Diamonds • Local",price:40,icon:"⚡"},
+    {id:"local115",name:"115 Diamonds • Local",price:80,icon:"⚡"},
+    {id:"local240",name:"240 Diamonds • Local",price:160,icon:"⚡"},
+    {id:"local355",name:"355 Diamonds • Local",price:240,icon:"⚡"},
+    {id:"local610",name:"610 Diamonds • Local",price:400,icon:"⚡"}
+  ]
 };
+
+let currentUser = null;
+let selectedProduct = null;
+let selectedPayment = "";
+let activeCategory = "";
+let isSubmitting = false;
 
 const $ = id => document.getElementById(id);
 
-let selected = null;
-let currentUser = null;
-let stopOrders = null;
-let stopAdminOrders = null;
-
-function message(text) {
-  $("message").textContent = text;
+function showMessage(text) {
+  const el = $("message");
+  el.textContent = text;
+  el.classList.remove("hidden");
+  clearTimeout(showMessage.timer);
+  showMessage.timer = setTimeout(() => el.classList.add("hidden"), 3500);
 }
 
-/* Payment Method */
-$("paymentMethod").addEventListener("change", () => {
-  const method = $("paymentMethod").value;
-  const details = $("paymentDetails");
-
-  $("copyMessage").textContent = "";
-
-  if (!method) {
-    details.hidden = true;
-    $("paymentNumber").textContent = "";
-    $("paymentTitle").textContent = "";
-    return;
-  }
-
-  $("paymentTitle").textContent =
-    method === "bKash" ? "বিকাশ নম্বর:" : "নগদ নম্বর:";
-
-  $("paymentNumber").textContent = paymentNumbers[method];
-  details.hidden = false;
-});
-
-/* Copy Payment Number */
-$("copyPaymentNumber").addEventListener("click", async () => {
-  const number = $("paymentNumber").textContent;
-
-  try {
-    await navigator.clipboard.writeText(number);
-    $("copyMessage").textContent = "নম্বর কপি হয়েছে!";
-  } catch (error) {
-    $("copyMessage").textContent =
-      "কপি করা যায়নি। নম্বরটি হাতে কপি করুন: " + number;
-  }
-});
-
-/* Render Packages */
-function renderPackages() {
-  $("packages").replaceChildren();
-
-  products.forEach(p => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "pkg";
-
-    const name = document.createElement("strong");
-    name.textContent = p.name;
-
-    const price = document.createElement("span");
-    price.textContent = "৳" + p.price;
-
-    button.append(name, price);
-
-    button.addEventListener("click", () => {
-      selected = p;
-
-      document.querySelectorAll(".pkg").forEach(el => {
-        el.classList.remove("selected");
-      });
-
-      button.classList.add("selected");
-      $("summary").textContent =
-        `নির্বাচিত: ${p.name} — ৳${p.price}`;
-    });
-
-    $("packages").appendChild(button);
-  });
+function showSection(id) {
+  $(id).classList.remove("hidden");
+  $(id).scrollIntoView({behavior:"smooth",block:"start"});
 }
 
-/* Customer Orders */
-function showOrders(snapshot) {
-  const box = $("orders");
-  box.replaceChildren();
-
-  if (snapshot.empty) {
-    const p = document.createElement("p");
-    p.className = "small";
-    p.textContent = "এখনও কোনো অর্ডার নেই।";
-    box.appendChild(p);
-    return;
-  }
-
-  const docs = [];
-  snapshot.forEach(d => docs.push({id:d.id, ...d.data()}));
-
-  docs.sort((a, b) => {
-    const ta = a.createdAt?.toMillis?.() || 0;
-    const tb = b.createdAt?.toMillis?.() || 0;
-    return tb - ta;
-  });
-
-  docs.forEach(o => {
-    const div = document.createElement("div");
-    div.className = "order";
-
-    const title = document.createElement("strong");
-    title.textContent = `${o.packageName} — ৳${o.price}`;
-
-    const detail = document.createElement("p");
-    detail.className = "small";
-    detail.textContent =
-      `Order ID: ${o.id} | UID: ${o.uid} | ${o.paymentMethod} | TrxID: ${o.transactionId}`;
-
-    const status = document.createElement("p");
-    status.className = "status";
-    status.textContent = "স্ট্যাটাস: " + (o.status || "pending");
-
-    div.append(title, detail, status);
-    box.appendChild(div);
-  });
+function hideSection(id) {
+  $(id).classList.add("hidden");
 }
 
-/* Admin Orders */
-function showAdminOrders(snapshot) {
-  const box = $("adminOrders");
-  box.replaceChildren();
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, ch => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  })[ch]);
+}
 
-  if (snapshot.empty) {
-    const p = document.createElement("p");
-    p.className = "small";
-    p.textContent = "এখনও কোনো অর্ডার নেই।";
-    box.appendChild(p);
-    return;
-  }
+function formatDate(timestamp) {
+  if (!timestamp) return "Just now";
+  const date = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
+  return date.toLocaleString("bn-BD");
+}
 
-  const docs = [];
-  snapshot.forEach(d => docs.push({id:d.id, ...d.data()}));
+function statusLabel(status) {
+  const labels = {
+    pending:"Pending",
+    processing:"Processing",
+    completed:"Completed",
+    rejected:"Rejected"
+  };
+  return labels[status] || status || "pending";
+}
 
-  docs.sort((a, b) => {
-    const ta = a.createdAt?.toMillis?.() || 0;
-    const tb = b.createdAt?.toMillis?.() || 0;
-    return tb - ta;
-  });
+function statusHTML(status) {
+  const safeStatus = ["pending","processing","completed","rejected"].includes(status)
+    ? status : "pending";
+  return `<span class="status status-${safeStatus}">${statusLabel(safeStatus)}</span>`;
+}
 
-  docs.forEach(order => {
+window.openCategory = function(category) {
+  activeCategory = category;
+  selectedProduct = null;
+  selectedPayment = "";
+
+  const names = {
+    diamonds:"💎 BD Top Up UID",
+    membership:"👑 Weekly / Monthly",
+    local:"⚡ Local Diamond Offer"
+  };
+
+  $("packagesTitle").textContent = names[category] || "প্যাকেজ নির্বাচন করুন";
+  $("packageGrid").innerHTML = "";
+
+  products[category].forEach(product => {
     const card = document.createElement("div");
-    card.className = "admin-order";
-
-    const title = document.createElement("strong");
-    title.textContent = `${order.packageName || "প্যাকেজ"} — ৳${order.price}`;
-
-    const detail = document.createElement("p");
-    detail.className = "small";
-    detail.textContent =
-      `Order ID: ${order.id} | UID: ${order.uid} | Player: ${order.playerName || "নাম নেই"} | Payment: ${order.paymentMethod} | TrxID: ${order.transactionId}`;
-
-    const currentStatus = document.createElement("p");
-    currentStatus.className = "status";
-    currentStatus.textContent = "বর্তমান স্ট্যাটাস: " + (order.status || "pending");
-
-    const select = document.createElement("select");
-
-    const statuses = [
-      {value:"pending", label:"Pending"},
-      {value:"processing", label:"Processing"},
-      {value:"completed", label:"Completed"},
-      {value:"rejected", label:"Rejected"}
-    ];
-
-    statuses.forEach(item => {
-      const option = document.createElement("option");
-      option.value = item.value;
-      option.textContent = item.label;
-      select.appendChild(option);
-    });
-
-    select.value = statuses.some(s => s.value === order.status)
-      ? order.status
-      : "pending";
-
-    const updateButton = document.createElement("button");
-    updateButton.type = "button";
-    updateButton.textContent = "স্ট্যাটাস আপডেট করুন";
-
-    updateButton.addEventListener("click", async () => {
-      if (
-        !currentUser ||
-        currentUser.email !== ADMIN_EMAIL ||
-        !currentUser.emailVerified
-      ) {
-        $("adminMessage").textContent =
-          "Admin হিসেবে যাচাই করা যায়নি। আবার লগইন করুন।";
-        return;
-      }
-
-      updateButton.disabled = true;
-      $("adminMessage").textContent = "স্ট্যাটাস আপডেট হচ্ছে...";
-
-      try {
-        await updateDoc(doc(db, "orders", order.id), {
-          status: select.value
-        });
-
-        $("adminMessage").textContent =
-          `অর্ডার ${order.id}-এর স্ট্যাটাস আপডেট হয়েছে।`;
-      } catch (error) {
-        console.error(error);
-        $("adminMessage").textContent =
-          "আপডেট হয়নি। Firestore Rules প্রকাশ করা আছে কি না যাচাই করুন।";
-      } finally {
-        updateButton.disabled = false;
-      }
-    });
-
-    card.append(title, detail, currentStatus, select, updateButton);
-    box.appendChild(card);
+    card.className = "package-card";
+    card.innerHTML = `
+      <div class="package-icon">${product.icon}</div>
+      <div class="package-name">${escapeHTML(product.name)}</div>
+      <div class="price">৳${product.price}</div>
+      <span class="tag">SELECT PACKAGE</span>`;
+    card.addEventListener("click", () => selectProduct(product, card));
+    $("packageGrid").appendChild(card);
   });
+
+  hideSection("orderSection");
+  hideSection("paymentSection");
+  hideSection("myOrdersSection");
+  hideSection("adminSection");
+  showSection("packagesSection");
+};
+
+function selectProduct(product, card) {
+  selectedProduct = product;
+  document.querySelectorAll(".package-card").forEach(el => el.classList.remove("selected"));
+  card.classList.add("selected");
+
+  $("selectedPackageText").innerHTML =
+    `Selected Package: <strong>${escapeHTML(product.name)}</strong><br>Price: <strong>৳${product.price}</strong>`;
+
+  hideSection("paymentSection");
+  showSection("orderSection");
 }
 
-/* Google Login */
-$("googleLoginBtn").addEventListener("click", async () => {
-  try {
-    await signInWithPopup(auth, new GoogleAuthProvider());
-  } catch (error) {
-    console.error(error);
-    $("loginMessage").textContent =
-      "Google Login হয়নি। Authorized domains ও Google Login সেটিংস যাচাই করুন।";
-  }
-});
+window.backToCategories = function() {
+  hideSection("packagesSection");
+  hideSection("orderSection");
+  hideSection("paymentSection");
+  showSection("categories");
+};
 
-/* Logout */
-$("googleLogoutBtn").addEventListener("click", async () => {
-  try {
-    await signOut(auth);
-  } catch (error) {
-    console.error(error);
-    $("loginMessage").textContent = "লগআউট হয়নি। আবার চেষ্টা করুন।";
-  }
-});
-
-/* Authentication State */
-onAuthStateChanged(auth, user => {
-  currentUser = user && !user.isAnonymous ? user : null;
-
-  $("googleLoginBtn").hidden = !!currentUser;
-  $("googleLogoutBtn").hidden = !currentUser;
-
-  $("loginMessage").textContent = currentUser
-    ? `${currentUser.displayName || "Google ব্যবহারকারী"} — ${currentUser.email || ""}`
-    : "অর্ডার করতে Google দিয়ে লগইন করুন।";
-
-  if (stopOrders) {
-    stopOrders();
-    stopOrders = null;
-  }
-
-  if (stopAdminOrders) {
-    stopAdminOrders();
-    stopAdminOrders = null;
-  }
-
-  $("orders").replaceChildren();
-  $("adminOrders").replaceChildren();
-  $("adminPanel").hidden = true;
-  $("adminMessage").textContent = "";
-
-  if (!currentUser) {
-    $("orders").textContent = "অর্ডার দেখতে ও জমা দিতে Google দিয়ে লগইন করুন।";
-    message("অর্ডার করতে Google দিয়ে লগইন করুন।");
+$("buyNowBtn").addEventListener("click", () => {
+  if (!selectedProduct) {
+    showMessage("আগে একটি প্যাকেজ নির্বাচন করুন।");
     return;
   }
 
-  /* Customer's Own Orders */
-  const customerQuery = query(
-    collection(db, "orders"),
-    where("ownerUid", "==", currentUser.uid)
-  );
-
-  stopOrders = onSnapshot(
-    customerQuery,
-    showOrders,
-    error => {
-      console.error(error);
-      $("orders").textContent =
-        "অর্ডার লোড হয়নি। Firestore Rules যাচাই করুন।";
-    }
-  );
-
-  /* Admin Access */
-  const isAdmin =
-    currentUser.email === ADMIN_EMAIL &&
-    currentUser.emailVerified === true;
-
-  if (isAdmin) {
-    $("adminPanel").hidden = false;
-    $("adminMessage").textContent = "Admin হিসেবে লগইন করা হয়েছে।";
-
-    stopAdminOrders = onSnapshot(
-      collection(db, "orders"),
-      showAdminOrders,
-      error => {
-        console.error(error);
-        $("adminOrders").textContent =
-          "সব অর্ডার লোড হয়নি। Firestore Rules যাচাই করুন।";
-      }
-    );
-  } else {
-    $("adminPanel").hidden = true;
-  }
-
-  message("আপনি লগইন করেছেন। এখন অর্ডার করতে পারবেন।");
-});
-
-/* Submit Order */
-$("orderBtn").addEventListener("click", async () => {
-  if (!currentUser) {
-    message("প্রথমে Google দিয়ে লগইন করুন।");
-    return;
-  }
-
-  const uid = $("uid").value.trim();
+  const uid = $("playerUid").value.trim();
   const playerName = $("playerName").value.trim();
-  const paymentMethod = $("paymentMethod").value;
+
+  if (!/^[0-9]{5,24}$/.test(uid)) {
+    showMessage("সঠিক Player UID লিখুন (৫-২৪টি সংখ্যা)।");
+    $("playerUid").focus();
+    return;
+  }
+  if (!playerName || playerName.length > 40) {
+    showMessage("আপনার Player Name লিখুন (সর্বোচ্চ ৪০ অক্ষর)।");
+    $("playerName").focus();
+    return;
+  }
+  if (!currentUser) {
+    showMessage("অর্ডার করতে আগে Google Login করুন।");
+    return;
+  }
+
+  $("paymentSummary").innerHTML =
+    `প্যাকেজ: <strong>${escapeHTML(selectedProduct.name)}</strong><br>` +
+    `Player UID: <strong>${escapeHTML(uid)}</strong><br>` +
+    `Player Name: <strong>${escapeHTML(playerName)}</strong><br>` +
+    `মোট টাকা: <strong>৳${selectedProduct.price}</strong>`;
+
+  $("paymentDetails").classList.add("hidden");
+  selectedPayment = "";
+  $("bkashBtn").classList.remove("active");
+  $("nagadBtn").classList.remove("active");
+  $("transactionId").value = "";
+  showSection("paymentSection");
+});
+
+window.choosePayment = function(method) {
+  if (!["bKash","Nagad"].includes(method)) return;
+  selectedPayment = method;
+  $("paymentNumber").value = PAYMENT_NUMBER;
+  $("bkashBtn").classList.toggle("active", method === "bKash");
+  $("nagadBtn").classList.toggle("active", method === "Nagad");
+  $("paymentDetails").classList.remove("hidden");
+};
+
+window.copyPaymentNumber = async function() {
+  try {
+    await navigator.clipboard.writeText(PAYMENT_NUMBER);
+    showMessage("পেমেন্ট নম্বর কপি হয়েছে!");
+  } catch {
+    $("paymentNumber").select();
+    const copied = document.execCommand("copy");
+    showMessage(copied ? "পেমেন্ট নম্বর কপি হয়েছে!" : "নম্বরটি হাতে কপি করুন: " + PAYMENT_NUMBER);
+  }
+};
+
+$("submitOrderBtn").addEventListener("click", async () => {
+  if (isSubmitting) return;
+
+  if (!currentUser) {
+    showMessage("অর্ডার করতে আগে Google Login করুন।");
+    return;
+  }
+  if (!selectedProduct) {
+    showMessage("আগে একটি প্যাকেজ নির্বাচন করুন।");
+    return;
+  }
+  if (!selectedPayment) {
+    showMessage("bKash অথবা Nagad নির্বাচন করুন।");
+    return;
+  }
+
+  const uid = $("playerUid").value.trim();
+  const playerName = $("playerName").value.trim();
   const transactionId = $("transactionId").value.trim();
 
   if (!/^[0-9]{5,24}$/.test(uid)) {
-    message("সঠিক Player UID লিখুন (৫–২৪টি সংখ্যা)।");
+    showMessage("সঠিক Player UID লিখুন।");
     return;
   }
-
-  if (playerName.length > 40) {
-    message("Player Name সর্বোচ্চ ৪০ অক্ষরের হতে পারবে।");
+  if (!playerName || playerName.length > 40) {
+    showMessage("সঠিক Player Name লিখুন।");
     return;
   }
-
-  if (!selected) {
-    message("একটি প্যাকেজ নির্বাচন করুন।");
-    return;
-  }
-
-  if (!paymentMethod || !paymentNumbers[paymentMethod]) {
-    message("বিকাশ অথবা নগদ পেমেন্ট পদ্ধতি নির্বাচন করুন।");
-    return;
-  }
-
   if (transactionId.length < 4 || transactionId.length > 100) {
-    message("সঠিক Transaction ID লিখুন।");
+    showMessage("সঠিক Transaction ID লিখুন।");
+    $("transactionId").focus();
     return;
   }
 
-  const btn = $("orderBtn");
-  btn.disabled = true;
-  message("অর্ডার জমা হচ্ছে...");
+  isSubmitting = true;
+  $("submitOrderBtn").disabled = true;
+  $("submitOrderBtn").textContent = "Submitting...";
 
   try {
-    const ref = await addDoc(collection(db, "orders"), {
+    await addDoc(collection(db, "orders"), {
       ownerUid: currentUser.uid,
-      uid: uid,
-      playerName: playerName,
+      uid,
+      playerName,
       region: "Bangladesh",
-      packageId: selected.id,
-      packageName: selected.name,
-      price: selected.price,
-      paymentMethod: paymentMethod,
-      transactionId: transactionId,
+      packageId: selectedProduct.id,
+      packageName: selectedProduct.name,
+      price: selectedProduct.price,
+      paymentMethod: selectedPayment,
+      transactionId,
       status: "pending",
       createdAt: serverTimestamp()
     });
 
-    message(
-      `অর্ডার জমা হয়েছে। Order ID: ${ref.id}। পেমেন্ট যাচাইয়ের অপেক্ষায় আছে।`
-    );
-
-    $("uid").value = "";
-    $("playerName").value = "";
+    showMessage("অর্ডার সফলভাবে জমা হয়েছে!");
     $("transactionId").value = "";
-    $("paymentMethod").value = "";
-    $("paymentDetails").hidden = true;
-    $("paymentNumber").textContent = "";
-    $("paymentTitle").textContent = "";
-    $("copyMessage").textContent = "";
-
-    selected = null;
-
-    document.querySelectorAll(".pkg").forEach(el => {
-      el.classList.remove("selected");
-    });
-
-    $("summary").textContent = "একটি প্যাকেজ নির্বাচন করুন।";
+    hideSection("paymentSection");
+    hideSection("orderSection");
+    hideSection("packagesSection");
+    showSection("myOrdersSection");
+    await loadMyOrders();
   } catch (error) {
     console.error(error);
-    message(
-      "অর্ডার জমা হয়নি। Firebase Authentication ও Firestore Rules যাচাই করুন।"
-    );
+    showMessage("অর্ডার জমা হয়নি। Login ও Firestore Rules যাচাই করুন।");
   } finally {
-    btn.disabled = false;
+    isSubmitting = false;
+    $("submitOrderBtn").disabled = false;
+    $("submitOrderBtn").textContent = "Submit Order";
   }
 });
 
-renderPackages();
+$("loginBtn").addEventListener("click", async () => {
+  try {
+    await signInWithPopup(auth, provider);
+  } catch (error) {
+    console.error(error);
+    showMessage("Login হয়নি: " + (error.message || "আবার চেষ্টা করুন"));
+  }
+});
+
+$("logoutBtn").addEventListener("click", async () => {
+  try {
+    await signOut(auth);
+    showMessage("Logout হয়েছে।");
+  } catch (error) {
+    console.error(error);
+    showMessage("Logout করা যায়নি।");
+  }
+});
+
+$("myOrdersBtn").addEventListener("click", async () => {
+  hideSection("adminSection");
+  showSection("myOrdersSection");
+  await loadMyOrders();
+});
+
+$("adminBtn").addEventListener("click", async () => {
+  hideSection("myOrdersSection");
+  showSection("adminSection");
+  await loadAdminOrders();
+});
+
+onAuthStateChanged(auth, user => {
+  currentUser = user;
+
+  $("loginBtn").classList.toggle("hidden", !!user);
+  $("logoutBtn").classList.toggle("hidden", !user);
+  $("myOrdersBtn").classList.toggle("hidden", !user);
+
+  const adminAllowed = !!user &&
+    user.email === ADMIN_EMAIL &&
+    user.emailVerified === true;
+
+  $("adminBtn").classList.toggle("hidden", !adminAllowed);
+
+  if (user) {
+    showMessage("Login হয়েছে: " + (user.displayName || user.email));
+  }
+});
+
+function orderCardHTML(order, id) {
+  const data = order;
+  return `
+    <div class="order-card">
+      <p><strong>Order ID:</strong> ${escapeHTML(id)}</p>
+      <p><strong>Package:</strong> ${escapeHTML(data.packageName)}</p>
+      <p><strong>Price:</strong> ৳${escapeHTML(data.price)}</p>
+      <p><strong>Player UID:</strong> ${escapeHTML(data.uid)}</p>
+      <p><strong>Player Name:</strong> ${escapeHTML(data.playerName)}</p>
+      <p><strong>Payment:</strong> ${escapeHTML(data.paymentMethod)}</p>
+      <p><strong>TrxID:</strong> ${escapeHTML(data.transactionId)}</p>
+      <p><strong>Date:</strong> ${escapeHTML(formatDate(data.createdAt))}</p>
+      <p><strong>Status:</strong> ${statusHTML(data.status)}</p>
+    </div>`;
+}
+
+window.loadMyOrders = async function() {
+  if (!currentUser) {
+    $("myOrdersList").innerHTML = '<div class="empty">প্রথমে Google Login করুন।</div>';
+    return;
+  }
+
+  $("myOrdersList").innerHTML = '<div class="empty">অর্ডার লোড হচ্ছে...</div>';
+
+  try {
+    const q = query(
+      collection(db, "orders"),
+      where("ownerUid", "==", currentUser.uid)
+    );
+    const snapshot = await getDocs(q);
+
+    if (snapshot.empty) {
+      $("myOrdersList").innerHTML = '<div class="empty">এখনো কোনো অর্ডার নেই।</div>';
+      return;
+    }
+
+    const orders = snapshot.docs.map(d => ({id:d.id,...d.data()}));
+    orders.sort((a,b) => {
+      const ta = a.createdAt?.toMillis?.() || 0;
+      const tb = b.createdAt?.toMillis?.() || 0;
+      return tb - ta;
+    });
+
+    $("myOrdersList").innerHTML = orders
+      .map(order => orderCardHTML(order, order.id)).join("");
+  } catch (error) {
+    console.error(error);
+    $("myOrdersList").innerHTML =
+      '<div class="empty">অর্ডার লোড হয়নি। Firestore Rules যাচাই করুন।</div>';
+  }
+};
+
+window.loadAdminOrders = async function() {
+  if (!currentUser || currentUser.email !== ADMIN_EMAIL || !currentUser.emailVerified) {
+    showMessage("Admin access অনুমোদিত নয়। সঠিক verified admin account দিয়ে Login করুন।");
+    return;
+  }
+
+  $("adminOrdersList").innerHTML = '<div class="empty">সব অর্ডার লোড হচ্ছে...</div>';
+
+  try {
+    const snapshot = await getDocs(collection(db, "orders"));
+
+    if (snapshot.empty) {
+      $("adminOrdersList").innerHTML = '<div class="empty">কোনো অর্ডার পাওয়া যায়নি।</div>';
+      return;
+    }
+
+    const orders = snapshot.docs.map(d => ({id:d.id,...d.data()}));
+    orders.sort((a,b) => {
+      const ta = a.createdAt?.toMillis?.() || 0;
+      const tb = b.createdAt?.toMillis?.() || 0;
+      return tb - ta;
+    });
+
+    $("adminOrdersList").innerHTML = orders.map(order => `
+      <div class="order-card">
+        <p><strong>Order ID:</strong> ${escapeHTML(order.id)}</p>
+        <p><strong>Customer UID:</strong> ${escapeHTML(order.ownerUid)}</p>
+        <p><strong>Package:</strong> ${escapeHTML(order.packageName)}</p>
+        <p><strong>Price:</strong> ৳${escapeHTML(order.price)}</p>
+        <p><strong>Player UID:</strong> ${escapeHTML(order.uid)}</p>
+        <p><strong>Player Name:</strong> ${escapeHTML(order.playerName)}</p>
+        <p><strong>Payment:</strong> ${escapeHTML(order.paymentMethod)}</p>
+        <p><strong>TrxID:</strong> ${escapeHTML(order.transactionId)}</p>
+        <p><strong>Date:</strong> ${escapeHTML(formatDate(order.createdAt))}</p>
+        <p><strong>Current Status:</strong> ${statusHTML(order.status)}</p>
+        <div class="admin-row">
+          <select id="status-${escapeHTML(order.id)}" aria-label="Order status">
+            <option value="pending" ${order.status==="pending"?"selected":""}>Pending</option>
+            <option value="processing" ${order.status==="processing"?"selected":""}>Processing</option>
+            <option value="completed" ${order.status==="completed"?"selected":""}>Completed</option>
+            <option value="rejected" ${order.status==="rejected"?"selected":""}>Rejected</option>
+          </select>
+          <button class="btn btn-small" data-update="${escapeHTML(order.id)}">Update Status</button>
+        </div>
+      </div>
+    `).join("");
+
+    document.querySelectorAll("[data-update]").forEach(button => {
+      button.addEventListener("click", async () => {
+        const orderId = button.dataset.update;
+        const select = $("status-" + orderId);
+        const newStatus = select.value;
+
+        if (!currentUser ||
+            currentUser.email !== ADMIN_EMAIL ||
+            !currentUser.emailVerified) {
+          showMessage("Admin access অনুমোদিত নয়।");
+          return;
+        }
+
+        button.disabled = true;
+        button.textContent = "Updating...";
+
+        try {
+          await updateDoc(doc(db, "orders", orderId), {status:newStatus});
+          showMessage("অর্ডারের Status আপডেট হয়েছে!");
+          await loadAdminOrders();
+        } catch (error) {
+          console.error(error);
+          showMessage("Status আপডেট হয়নি। Firestore Rules যাচাই করুন।");
+          button.disabled = false;
+          button.textContent = "Update Status";
+        }
+      });
+    });
+  } catch (error) {
+    console.error(error);
+    $("adminOrdersList").innerHTML =
+      '<div class="empty">অর্ডার লোড হয়নি। Admin email, verification ও Firestore Rules যাচাই করুন।</div>';
+  }
+};
 </script>
 </body>
 </html>
