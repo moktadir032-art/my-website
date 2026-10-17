@@ -334,6 +334,43 @@ let stopOrders=null;
 let stopAdminOrders=null;
 
 function setMessage(text){$("message").textContent=text;}
+  $("checkPlayerName").addEventListener("click", async () => {
+  const uid = $("uid").value.trim();
+  const msg = $("playerNameMessage");
+  const btn = $("checkPlayerName");
+
+  if (!/^[0-9]{5,24}$/.test(uid)) {
+    msg.textContent = "আগে সঠিক Player UID লিখুন।";
+    return;
+  }
+
+  btn.disabled = true;
+  msg.textContent = "গেমের নাম খোঁজা হচ্ছে...";
+
+  try {
+    const response = await fetch(
+      "https://api2.nftoken.info/player-info?uid=" +
+      encodeURIComponent(uid)
+    );
+
+    if (!response.ok) throw new Error("API error");
+
+    const data = await response.json();
+    const name = data?.AccountInfo?.AccountName;
+
+    if (!name || typeof name !== "string") {
+      throw new Error("Name not found");
+    }
+
+    $("playerName").value = name;
+    msg.textContent = "গেমের নাম পাওয়া গেছে: " + name;
+  } catch (error) {
+    msg.textContent =
+      "নাম আনা যায়নি। চাইলে নিজে নাম লিখে UID দিয়ে অর্ডার করুন।";
+  } finally {
+    btn.disabled = false;
+  }
+});
 
 function makeArt(emoji,color=""){
   const art=document.createElement("div");
