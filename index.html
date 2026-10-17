@@ -360,7 +360,7 @@ function setMessage(text){$("message").textContent=text;}
       throw new Error("Name not found");
     }
 
-    $("playerName").value = name;
+    btn.textContent = name;
     msg.textContent = "গেমের নাম পাওয়া গেছে: " + name;
   } catch (error) {
     msg.textContent =
