@@ -421,7 +421,7 @@ function openProduct(categoryId){
   selected=null;
   paymentMethod="";
   $("uid").value="";
-  $("playerName").value="";
+  if ($("playerName")) $("playerName").value="";
   $("transactionId").value="";
   $("region").value=categoryId==="indo"?"Indonesia":"Bangladesh";
   $("paymentDetails").hidden=true;
