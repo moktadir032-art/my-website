@@ -417,45 +417,58 @@ function renderCategories(){
 }
 
 function openProduct(categoryId){
-  currentCategory=categoryId;
-  selected=null;
-  paymentMethod="";
-  $("uid").value="";
-  if ($("playerName")) $("playerName").value="";
-  $("transactionId").value="";
-  $("region").value=categoryId==="indo"?"Indonesia":"Bangladesh";
-  $("paymentDetails").hidden=true;
-  document.querySelectorAll(".payment-choice").forEach(b=>b.classList.remove("selected"));
+  currentCategory = categoryId;
+  selected = null;
+  paymentMethod = "";
+
+  $("uid").value = "";
+  if ($("playerName")) $("playerName").value = "";
+  $("transactionId").value = "";
+  $("region").value = categoryId === "indo" ? "Indonesia" : "Bangladesh";
+  $("paymentDetails").hidden = true;
+
+  document.querySelectorAll(".payment-choice").forEach(b => {
+    b.classList.remove("selected");
+  });
+
   setMessage("");
 
-  const cat=categories.find(c=>c.id===categoryId)||categories[0];
-  $("productTitle").textContent=cat.name;
-  $("productEmoji").textContent=cat.emoji;
-  $("summary").textContent="একটি প্যাকেজ নির্বাচন করুন।";
+  const cat = categories.find(c => c.id === categoryId) || categories[0];
+  $("productTitle").textContent = cat.name;
+  $("productEmoji").textContent = cat.emoji;
+  $("summary").textContent = "একটি প্যাকেজ নির্বাচন করুন।";
 
-  const grid=$("rechargeGrid");
+  const grid = $("rechargeGrid");
   grid.replaceChildren();
 
-  (products[categoryId]||products.uid).forEach(product=>{
-    const btn=document.createElement("button");
-    btn.type="button";
-    btn.className="recharge-option";
-    const name=document.createElement("span");
-    name.textContent=product.name;
-    const price=document.createElement("strong");
-    price.textContent="BDT "+product.price;
-    btn.append(name,price);
-    btn.addEventListener("click",()=>{
-      selected=product;
-      grid.querySelectorAll(".recharge-option").forEach(el=>el.classList.remove("selected"));
+  (products[categoryId] || products.uid).forEach(product => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "recharge-option";
+
+    const name = document.createElement("span");
+    name.textContent = product.name;
+
+    const price = document.createElement("strong");
+    price.textContent = "BDT " + product.price;
+
+    btn.append(name, price);
+
+    btn.addEventListener("click", () => {
+      selected = product;
+      grid.querySelectorAll(".recharge-option").forEach(el => {
+        el.classList.remove("selected");
+      });
       btn.classList.add("selected");
-      $("summary").textContent=`প্যাকেজ: ${product.name} | মূল্য: ৳${product.price}`;
+      $("summary").textContent =
+        `প্যাকেজ: ${product.name} | মূল্য: ৳${product.price}`;
     });
+
     grid.appendChild(btn);
   });
 
   showPage("productPage");
-}
+    }
   function showPage(pageId){
   document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
   $(pageId).classList.add("active");
