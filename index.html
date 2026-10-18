@@ -253,7 +253,23 @@ body {
 .section-title{
   color:#ffe18a;
   text-shadow:0 0 8px #ffb900,0 2px 3px #4a2600;
-}  
+}
+  /* Gold Diamond Corner Decorations */
+.category:before,
+.promo:before{
+  content:"";
+  position:absolute;
+  top:-7px;
+  left:calc(50% - 7px);
+  width:14px;
+  height:14px;
+  background:linear-gradient(135deg,#fff6b0,#ffca32,#9b6108);
+  border:1px solid #fff0a6;
+  transform:rotate(45deg);
+  box-shadow:0 0 8px #ffdc55;
+  z-index:3;
+  pointer-events:none;
+}
 </style>
 </head>
 <body>
