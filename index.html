@@ -955,6 +955,32 @@ body {
     #e6a000
   ) !important;
 }
+  
+/* Golden sparkle animation */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.6;
+  background-image:
+    radial-gradient(circle, #fff9c4 1px, transparent 3px),
+    radial-gradient(circle, #ffffff 1px, transparent 3px),
+    radial-gradient(circle, #ffef86 2px, transparent 4px);
+  background-size: 83px 97px, 137px 151px, 191px 173px;
+  animation: goldSparkle 7s linear infinite;
+}
+
+@keyframes goldSparkle {
+  from {
+    background-position: 0 0, 35px 60px, 80px 20px;
+  }
+  to {
+    background-position: 0 -97px, 35px -91px, 80px -153px;
+  }
+}
+  
 </style>
   
 </body>
