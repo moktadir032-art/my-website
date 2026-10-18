@@ -77,7 +77,27 @@ main{max-width:1000px;margin:auto;padding:12px 12px 110px}
   box-shadow:inset 0 0 18px #ffdf7855;
 }
 .cat-art:before{content:"";position:absolute;inset:8px;border:1px solid #ffffff60;border-radius:9px}
-.cat-art:after{content:"";position:absolute;width:120%;height:2px;background:#ffffff75;transform:rotate(-35deg);box-shadow:0 0 20px white}
+.cat-art:after{
+  content:"";
+  position:absolute;
+  width:45%;
+  height:160%;
+  top:-30%;
+  left:-70%;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    #fff7d888,
+    #ffffffcc,
+    #fff7d888,
+    transparent
+  );
+  transform:rotate(25deg);
+  box-shadow:0 0 12px #ffdf7855;
+  animation:goldShine 4s ease-in-out infinite;
+  pointer-events:none;
+  z-index:2;
+}
 .cat-emoji{font-size:clamp(35px,9vw,65px);filter:drop-shadow(0 4px 3px #001e68);z-index:1}
 .cat-art.gold{background:radial-gradient(circle,#ffd879,#e46b00 50%,#591600)}
 .cat-art.purple{background:radial-gradient(circle,#d4a5ff,#6434d4 55%,#171057)}
