@@ -1036,7 +1036,58 @@ button:focus-visible {
   outline-offset: 3px;
   }
   
-</style>
+
   
+/* Golden shine animation for cards */
+.category,
+.promo,
+.info-card {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Moving light streak */
+.category::after,
+.promo::after,
+.info-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 65%;
+  height: 100%;
+  pointer-events: none;
+
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    #fff4a000 25%,
+    #fff8c9aa 50%,
+    #fff4a000 75%,
+    transparent 100%
+  );
+
+  transform: skewX(-20deg);
+  animation: goldCardShine 5s ease-in-out infinite;
+}
+
+@keyframes goldCardShine {
+  0%, 65% {
+    left: -150%;
+  }
+  100% {
+    left: 180%;
+  }
+}
+
+/* Reduce animation for users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  .category::after,
+  .promo::after,
+  .info-card::after {
+    animation: none;
+  }
+}
+ </style> 
 </body>
 </html>
