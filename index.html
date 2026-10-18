@@ -980,6 +980,61 @@ body::before {
     background-position: 0 -97px, 35px -91px, 80px -153px;
   }
 }
+ 
+/* Premium Gold Card Effects */
+.category,
+.promo,
+.info-card {
+  background: linear-gradient(
+    145deg,
+    #76500b 0%,
+    #3b2505 55%,
+    #6b4508 100%
+  ) !important;
+
+  border: 2px solid #ffdf55 !important;
+  border-radius: 18px !important;
+
+  box-shadow:
+    inset 0 0 12px #ffe47735,
+    0 0 8px #ffcf32aa,
+    0 4px 12px #6b400080 !important;
+
+  color: #fff0a6 !important;
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Golden shine on card borders */
+.category:hover,
+.promo:hover,
+.info-card:hover {
+  border-color: #fff5ae !important;
+  box-shadow:
+    inset 0 0 16px #ffe47755,
+    0 0 18px #ffcf32cc,
+    0 5px 16px #6b400099 !important;
+}
+
+/* Golden card headings */
+.category h3,
+.promo h3,
+.info-card h3,
+.cat-name {
+  color: #ffe9a0 !important;
+  text-shadow: 0 1px 5px #ffbf28aa;
+}
+
+/* Gold buttons */
+button {
+  border-color: #ffda49;
+}
+
+button:focus-visible {
+  outline: 2px solid #fff2a0;
+  outline-offset: 3px;
+  }
   
 </style>
   
