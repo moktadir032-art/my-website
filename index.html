@@ -1500,15 +1500,21 @@ button:focus-visible {
     animation: none;
   }
 }
-  /* Final card image and gold frame fix */
-.cat-art img{
-  display:block;
-  width:calc(100% - 16px);
-  height:calc(100% - 16px);
-  object-fit:contain;
-  box-sizing:border-box;
-  border-radius:9px;
+ 
+/* Fix only the second OFFER card */
+#offerCards .promo:nth-child(2) .cat-art img {
+  width: 82% !important;
+  height: 82% !important;
+  object-fit: contain !important;
+  position: relative !important;
+  z-index: 1 !important;
 }
+
+#offerCards .promo:nth-child(2) .cat-art:before {
+  inset: 3px !important;
+  border: 2px solid #ffe8a0 !important;
+    }
+  
 .cat-art:before{
   inset:5px;
   border:1px solid #ffe18a;
