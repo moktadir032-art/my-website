@@ -1545,6 +1545,19 @@ button:focus-visible {
 #offerCards .promo:nth-child(2) .cat-art:before {
   inset: 2px !important;
 }
+
+/* Final fix: image and frame of second OFFER card only */
+#offerCards .promo:nth-child(2) .cat-art img {
+  width: 82% !important;
+  height: 82% !important;
+  object-fit: contain !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+#offerCards .promo:nth-child(2) .cat-art:before {
+  inset: 3px !important;
+}
   
  </style> 
 </body>
