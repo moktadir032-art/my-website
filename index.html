@@ -896,10 +896,32 @@ function setMessage(text){$("message").textContent=text;}
 function makeArt(emoji,color=""){
   const art=document.createElement("div");
   art.className="cat-art "+color;
-  const symbol=document.createElement("span");
-  symbol.className="cat-emoji";
-  symbol.textContent=emoji;
-  art.appendChild(symbol);
+
+  const images={
+    uid:"free_fire_uid_topup.png",
+    weekly:"weekly_monthly_combo.png",
+    like:"like_service.png",
+    lite:"weekly_monthly_combo_2.png",
+    indo:"indonesia_server.png",
+    level:"level_up_pass.png"
+  };
+
+  const img=document.createElement("img");
+  img.src="images/"+(images[color]||images[emoji]||"diamonds.png");
+  img.alt=emoji;
+  img.style.width="100%";
+  img.style.height="100%";
+  img.style.objectFit="contain";
+
+  img.onerror=()=>{
+    img.remove();
+    const symbol=document.createElement("span");
+    symbol.className="cat-emoji";
+    symbol.textContent=emoji;
+    art.appendChild(symbol);
+  };
+
+  art.appendChild(img);
   return art;
 }
 
