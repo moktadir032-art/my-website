@@ -893,21 +893,26 @@ function setMessage(text){$("message").textContent=text;}
     
 });
 
+
 function makeArt(emoji,color=""){
   const art=document.createElement("div");
   art.className="cat-art "+color;
 
   const images={
-    uid:"free_fire_uid_topup.png",
-    weekly:"weekly_monthly_combo.png",
-    like:"like_service.png",
-    lite:"weekly_monthly_combo_2.png",
-    indo:"indonesia_server.png",
-    level:"level_up_pass.png"
+    "🎮":"free_fire_uid_topup.png",
+    "💎":"weekly_monthly_combo.png",
+    "👍":"like_service.png",
+    "📦":"weekly_monthly_combo_2.png",
+    "🌏":"indonesia_server.png",
+    "🎁":"level_up_pass.png",
+    "🔥":"indonesia_server.png",
+    "👑":"membership.png",
+    "⭐":"diamonds.png",
+    "💰":"level_up_pass_package.png"
   };
 
   const img=document.createElement("img");
-  img.src="images/"+(images[color]||images[emoji]||"diamonds.png");
+  img.src="images/"+(images[emoji]||"diamonds.png");
   img.alt=emoji;
   img.style.width="100%";
   img.style.height="100%";
@@ -923,7 +928,8 @@ function makeArt(emoji,color=""){
 
   art.appendChild(img);
   return art;
-}
+  }
+  
 
 function renderCategories(){
   const box=$("categoryCards");
