@@ -1813,6 +1813,41 @@ body::after {
 .goldShine {
   animation: none !important;
 }
+  /* Equal gold border for all cards */
+#categoryCards .category,
+#offerCards .promo,
+.category.promo {
+  border: 2px solid #c6a04a !important;
+  border-radius: 20px !important;
+  box-sizing: border-box !important;
+  box-shadow:
+    0 0 5px rgba(212,175,55,.35),
+    0 2px 8px rgba(0,0,0,.08) !important;
+  overflow: hidden !important;
+  transform: none !important;
+}
+
+/* Remove the separate image frame */
+#categoryCards .category .cat-art,
+#offerCards .promo .cat-art,
+.category.promo .cat-art {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  margin: 0 !important;
+  transform: none !important;
+}
+
+/* Align the three OFFER cards evenly */
+#offerCards {
+  align-items: stretch !important;
+}
+
+#offerCards .promo {
+  align-self: stretch !important;
+  margin-top: 0 !important;
+  transform: none !important;
+}
  </style> 
 </body>
 </html>
