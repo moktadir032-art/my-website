@@ -1752,7 +1752,28 @@ header,
 .info-card::after {
   animation: none !important;
 }
-  
+  /* Stop moving shine on cards */
+.category::after,
+.promo::after,
+.info-card::after,
+.cat-art::after {
+  content: none !important;
+  display: none !important;
+  animation: none !important;
+}
+
+/* Remove golden dots from page background */
+body {
+  background-image: none !important;
+  background-color: #ffffff !important;
+}
+
+.spark,
+.sparkle,
+.particle,
+.gold-particle {
+  display: none !important;
+}
  </style> 
 </body>
 </html>
