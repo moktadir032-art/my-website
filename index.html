@@ -1848,6 +1848,54 @@ body::after {
   margin-top: 0 !important;
   transform: none !important;
 }
+  /* FIX ALL 9 CARDS: SAME GOLD BORDER AND IMAGE ALIGNMENT */
+#categoryCards .category,
+#offerCards .promo,
+.category.promo {
+box-sizing: border-box !important;
+border: 3px solid #b8943e !important;
+border-radius: 28px !important;
+background: #fff !important;
+background-image: none !important;
+box-shadow: 0 0 0 1px #b8943e,
+0 3px 10px rgba(184,148,62,.22) !important;
+overflow: hidden !important;
+}
+
+/* REMOVE BROWN LOWER AREA; KEEP ALL CARD AREAS WHITE */
+#categoryCards .category > *,
+#offerCards .promo > *,
+.category.promo > * {
+background-color: #fff !important;
+background-image: none !important;
+}
+
+/* SAME GOLD BORDER AROUND IMAGE AREA */
+#categoryCards .category .cat-art,
+#offerCards .promo .cat-art,
+.category.promo .cat-art {
+box-sizing: border-box !important;
+border: 3px solid #b8943e !important;
+border-radius: 22px !important;
+background: #fff !important;
+box-shadow: none !important;
+overflow: hidden !important;
+}
+
+/* ALIGN IMAGES CONSISTENTLY */
+#categoryCards .category img,
+#offerCards .promo img,
+.category.promo img {
+object-fit: contain !important;
+filter: none !important;
+}
+
+/* KEEP CARD TITLES CENTERED */
+#categoryCards .category,
+#offerCards .promo,
+.category.promo {
+text-align: center !important;
+}
  </style> 
 </body>
 </html>
