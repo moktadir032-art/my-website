@@ -2054,6 +2054,37 @@ max-width: 100% !important;
   content: none !important;
   display: none !important;
 }
+ 
+/* REMOVE CARD BORDERS */
+.category,
+.promo {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background: #fff !important;
+}
+
+.category::before,
+.category::after,
+.promo::before,
+.promo::after {
+  display: none !important;
+  content: none !important;
+}
+
+.cat-art {
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.cat-name,
+.promo p {
+  border: 0 !important;
+  box-shadow: none !important;
+  background: #fff !important;
+  color: #222 !important;
+  text-shadow: none !important;
+}
   
  </style> 
 </body>
