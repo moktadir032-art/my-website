@@ -585,7 +585,27 @@ body{
 @media(max-width:360px){
   .cards{gap:8px}
   .category .cat-name{font-size:11px}
-  } 
+  }
+  /* Remove card borders and shine */
+.category,
+.category .cat-art,
+.category .cat-name,
+.category p {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background-image: none !important;
+  text-shadow: none !important;
+}
+
+.category::before,
+.category::after,
+.cat-art::before,
+.cat-art::after {
+  display: none !important;
+  content: none !important;
+  animation: none !important;
+}
 </style>
 </head>
 <body>
