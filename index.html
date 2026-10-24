@@ -1987,6 +1987,23 @@ max-width: 100% !important;
 .promo p {
   background: #fff !important;
 }
+ 
+/* REMOVE OUTER GOLD FRAMES */
+.cards .category,
+.promo-grid .promo {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: #fff !important;
+}
+
+.cards .category::before,
+.cards .category::after,
+.promo-grid .promo::before,
+.promo-grid .promo::after {
+  content: none !important;
+  display: none !important;
+}
   
  </style> 
 </body>
