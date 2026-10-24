@@ -2027,6 +2027,30 @@ max-width: 100% !important;
   background: #fff !important;
 }
   
+/* FORCE REMOVE ALL CARD LINES */
+.category,
+.promo,
+.category .cat-art,
+.promo .cat-art,
+.category .cat-name,
+.promo p {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background-color: #fff !important;
+  background-image: none !important;
+}
+
+.category::before,
+.category::after,
+.promo::before,
+.promo::after,
+.cat-art::before,
+.cat-art::after {
+  content: none !important;
+  display: none !important;
+}
+  
  </style> 
 </body>
 </html>
