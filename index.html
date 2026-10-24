@@ -1712,6 +1712,30 @@ header,
 #offerCards .promo img {
   filter: none !important;
 }
+ /* Fix bottom navigation layout */
+.bottom-nav {
+  position: fixed !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-around !important;
+  box-sizing: border-box !important;
+  z-index: 9999 !important;
+}
+.bottom-nav > * {
+  position: relative !important;
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+} 
  </style> 
 </body>
 </html>
