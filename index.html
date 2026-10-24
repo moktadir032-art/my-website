@@ -1774,6 +1774,37 @@ body {
 .gold-particle {
   display: none !important;
 }
+  /* Completely remove glitter particles */
+body::before,
+body::after {
+  display: none !important;
+  content: none !important;
+  animation: none !important;
+  background: none !important;
+}
+
+/* Remove moving glass shine from all cards */
+.category::before,
+.category::after,
+.promo::before,
+.promo::after,
+.info-card::before,
+.info-card::after,
+.cat-art::before,
+.cat-art::after {
+  display: none !important;
+  content: none !important;
+  animation: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+/* Stop shine animations */
+.goldSparkle,
+.goldCardShine,
+.goldShine {
+  animation: none !important;
+}
  </style> 
 </body>
 </html>
