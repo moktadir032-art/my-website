@@ -1688,7 +1688,30 @@ header,
 #categoryCards .category img,
 #offerCards .promo img {
   filter: none !important;
-}  
+}
+  /* Fix brown lower area of all cards */
+#categoryCards .category,
+#offerCards .promo,
+.category.promo {
+  background: #fff !important;
+  background-image: none !important;
+}
+#categoryCards .category > *,
+#offerCards .promo > *,
+.category.promo > * {
+  background-color: #fff !important;
+  background-image: none !important;
+}
+#categoryCards .category,
+#offerCards .promo,
+.category.promo {
+  color: #222 !important;
+  text-shadow: none !important;
+}
+#categoryCards .category img,
+#offerCards .promo img {
+  filter: none !important;
+}
  </style> 
 </body>
 </html>
