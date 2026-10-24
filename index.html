@@ -23,7 +23,13 @@ button{cursor:pointer}
 @keyframes introZoom{0%{transform:scale(.65);opacity:0}30%{transform:scale(1.05);opacity:1}100%{transform:scale(1)}}
 @keyframes float{to{transform:translateY(-12px) rotate(5deg)}}
 @keyframes twinkle{to{transform:scale(2.5);opacity:.2}}
-.topbar{position:sticky;top:0;z-index:100;background:linear-gradient(120deg,#a96500 0%,#ffdc50 24%,#d99300 55%,#ffed8a 78%,#9a5700 100%);box-shadow:0 4px 18px #5b3100aa,inset 0 -2px 0 #ffe9a0}
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:#fff;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
 .top-inner{max-width:1000px;margin:auto;min-height:86px;padding:12px 15px;display:flex;align-items:center;justify-content:space-between;gap:10px}
 .brand{font-size:clamp(16px,4.6vw,27px);font-weight:1000;color:#122c4d;text-shadow:1px 2px #9bc9ff;line-height:1.2}
 .brand span{color:#ffe16b;text-shadow:0 0 8px #ffbd35,0 0 16px #ffb900}
