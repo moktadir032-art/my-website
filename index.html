@@ -1735,7 +1735,24 @@ header,
   top: auto !important;
   bottom: auto !important;
   transform: none !important;
-} 
+}
+  /* Remove golden particles and glass shine */
+.spark,
+.sparkle,
+.particle,
+.gold-particle {
+  display: none !important;
+  animation: none !important;
+}
+.category::before,
+.category::after,
+.promo::before,
+.promo::after,
+.info-card::before,
+.info-card::after {
+  animation: none !important;
+}
+  
  </style> 
 </body>
 </html>
