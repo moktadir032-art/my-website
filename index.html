@@ -2105,7 +2105,29 @@ max-width: 100% !important;
   color: #222 !important;
   text-shadow: none !important;
 }
-  
+/* FINAL CARD BORDER FIX */
+#categoryCards .category,
+#offerCards .category,
+#categoryCards .cat-art,
+#offerCards .cat-art,
+#categoryCards .cat-name,
+#offerCards .promo p {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+#categoryCards .category::before,
+#categoryCards .category::after,
+#offerCards .category::before,
+#offerCards .category::after,
+#categoryCards .cat-art::before,
+#categoryCards .cat-art::after,
+#offerCards .cat-art::before,
+#offerCards .cat-art::after {
+  display: none !important;
+  content: none !important;
+}  
  </style> 
 </body>
 </html>
