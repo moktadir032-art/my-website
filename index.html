@@ -2295,6 +2295,81 @@ max-width: 100% !important;
   content: none !important;
   animation: none !important;
 }
+  
+/* FINAL CARD DESIGN - Keep Existing Images */
+
+#categoryCards .category,
+#offerCards .promo {
+  display: flex !important;
+  flex-direction: column !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+  background: #ffffff !important;
+  border: 1px solid #d6e2f0 !important;
+  border-radius: 16px !important;
+  outline: none !important;
+  box-shadow: 0 3px 7px rgba(40, 100, 160, 0.16) !important;
+  overflow: hidden !important;
+  color: #222222 !important;
+}
+
+#categoryCards .cat-art,
+#offerCards .cat-art {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 1 / 1 !important;
+  flex: 0 0 auto !important;
+  padding: 5px !important;
+  margin: 0 !important;
+  background: #ffffff !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+}
+
+#categoryCards .cat-art img,
+#offerCards .cat-art img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+}
+
+#categoryCards .cat-name,
+#offerCards .promo p {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  min-height: 55px !important;
+  margin: 0 !important;
+  padding: 6px 4px !important;
+  background: #ffffff !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #222222 !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+  text-align: center !important;
+  text-shadow: none !important;
+  overflow-wrap: anywhere !important;
+}
+
+#categoryCards .category::before,
+#categoryCards .category::after,
+#offerCards .promo::before,
+#offerCards .promo::after,
+#categoryCards .cat-art::before,
+#categoryCards .cat-art::after,
+#offerCards .cat-art::before,
+#offerCards .cat-art::after {
+  display: none !important;
+  content: none !important;
+  animation: none !important;
+}
+  
  </style> 
 </body>
 </html>
