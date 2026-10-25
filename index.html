@@ -2204,6 +2204,24 @@ max-width: 100% !important;
   margin: 0 !important;
   line-height: 1.3 !important;
 }
+  /* Make all card images the same size */
+#categoryCards .cat-art,
+#offerCards .cat-art {
+  width: 100% !important;
+  height: 100px !important;
+  aspect-ratio: auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+#categoryCards .cat-art img,
+#offerCards .cat-art img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: fill !important;
+  display: block !important;
+}
  </style> 
 </body>
 </html>
