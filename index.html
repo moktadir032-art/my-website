@@ -2479,7 +2479,55 @@ max-width: 100% !important;
   content: none !important;
   display: none !important;
 }
-  
+ /* FINAL FIX: compact cards and full-size images */
+#categoryCards,
+#offerCards {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 6px !important;
+  align-items: start !important;
+}
+
+#categoryCards .category,
+#offerCards .promo {
+  width: 100% !important;
+  min-width: 0 !important;
+  height: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+#categoryCards .cat-art,
+#offerCards .cat-art {
+  width: 100% !important;
+  aspect-ratio: 1 / 1 !important;
+  height: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  background: #fff !important;
+}
+
+#categoryCards .cat-art img,
+#offerCards .cat-art img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  margin: 0 !important;
+}
+
+#categoryCards .cat-name,
+#offerCards .promo p {
+  min-height: 44px !important;
+  height: auto !important;
+  padding: 5px 2px !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+} 
  </style> 
 </body>
 </html>
