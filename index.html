@@ -2528,6 +2528,90 @@ max-width: 100% !important;
   margin: 0 !important;
   box-sizing: border-box !important;
 } 
+  /* CARD DESIGN - MATCH REFERENCE */
+.cards,
+.promo-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+  align-items: stretch !important;
+}
+
+.cards .category,
+.promo-grid .promo {
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+  width: 100% !important;
+  height: auto !important;
+  padding: 5px !important;
+  margin: 0 !important;
+  border: 1px solid #d6e3ef !important;
+  border-radius: 17px !important;
+  background: #fff !important;
+  color: #222 !important;
+  box-shadow: 0 3px 8px rgba(40,80,120,.12) !important;
+  overflow: hidden !important;
+}
+
+.cards .cat-art,
+.promo-grid .cat-art {
+  display: block !important;
+  position: relative !important;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 1 / 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 9px !important;
+  background: #fff !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+}
+
+.cards .cat-art img,
+.promo-grid .cat-art img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  object-fit: cover !important;
+}
+
+.cards .cat-name,
+.cards .category p,
+.promo-grid .promo p {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 50px !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 5px 2px !important;
+  border: 0 !important;
+  background: #fff !important;
+  color: #222 !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  text-align: center !important;
+  text-shadow: none !important;
+  overflow-wrap: anywhere !important;
+}
+
+.cards .category::before,
+.cards .category::after,
+.cards .cat-art::before,
+.cards .cat-art::after,
+.promo-grid .promo::before,
+.promo-grid .promo::after,
+.promo-grid .cat-art::before,
+.promo-grid .cat-art::after {
+  display: none !important;
+  content: none !important;
+  animation: none !important;
+}
  </style> 
 </body>
 </html>
