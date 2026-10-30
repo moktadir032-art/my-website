@@ -1376,7 +1376,58 @@ $("orderBtn").addEventListener("click",async()=>{
     btn.disabled=false;
   }
 });
+// Wallet request submit
+$("walletSubmit").addEventListener("click", async () => {
+  if (!currentUser) {
+    $("walletMessage").textContent = "আগে Google দিয়ে লগইন করুন।";
+    showPage("accountPage");
+    return;
+  }
 
+  const amount = Number($("walletAmount").value);
+  const method = $("walletMethod").value;
+  const trx = $("walletTrx").value.trim();
+  const btn = $("walletSubmit");
+
+  if (!Number.isInteger(amount) || amount <= 0) {
+    $("walletMessage").textContent = "সঠিক টাকার পরিমাণ লিখুন।";
+    return;
+  }
+  if (!["bKash", "Nagad"].includes(method)) {
+    $("walletMessage").textContent = "পেমেন্ট মাধ্যম নির্বাচন করুন।";
+    return;
+  }
+  if (trx.length < 4 || trx.length > 100) {
+    $("walletMessage").textContent = "সঠিক Transaction ID লিখুন।";
+    return;
+  }
+
+  btn.disabled = true;
+  $("walletMessage").textContent = "রিকোয়েস্ট জমা হচ্ছে...";
+
+  try {
+    await addDoc(collection(db, "walletRequests"), {
+      ownerUid: currentUser.uid,
+      amount,
+      paymentMethod: method,
+      transactionId: trx,
+      status: "pending",
+      createdAt: serverTimestamp()
+    });
+
+    $("walletMessage").textContent =
+      "রিকোয়েস্ট জমা হয়েছে। অ্যাডমিন যাচাই করবেন।";
+    $("walletAmount").value = "";
+    $("walletMethod").value = "";
+    $("walletTrx").value = "";
+  } catch (error) {
+    console.error(error);
+    $("walletMessage").textContent =
+      "জমা হয়নি। আবার চেষ্টা করুন।";
+  } finally {
+    btn.disabled = false;
+  }
+});
 renderCategories();
 
 /* প্রথমবার Intro Animation; পরেরবার হোমপেজ */
