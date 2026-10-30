@@ -2623,6 +2623,23 @@ max-width: 100% !important;
   display: block !important;
 }
   
- </style> 
+ </style>
+  <section class="info-card" id="walletSection">
+  <h3>💰 Add Money to Wallet</h3>
+  <p>বিকাশ অথবা নগদ দিয়ে টাকা পাঠান।</p>
+  <label>টাকার পরিমাণ</label>
+  <input id="walletAmount" type="number" min="1" placeholder="যেমন 100">
+  <label>পেমেন্ট মাধ্যম</label>
+  <select id="walletMethod">
+    <option value="">নির্বাচন করুন</option>
+    <option value="bKash">bKash</option>
+    <option value="Nagad">Nagad</option>
+  </select>
+  <p>পেমেন্ট নম্বর: 01993140297</p>
+  <label>Transaction ID</label>
+  <input id="walletTrx" maxlength="100" placeholder="TrxID লিখুন">
+  <button id="walletSubmit" class="primary-btn" type="button">রিকোয়েস্ট জমা দিন</button>
+  <p id="walletMessage"></p>
+  </section>
 </body>
 </html>
